@@ -27,7 +27,7 @@ The mice in which we attempt to do so in are genetically modified to express Cha
 
 **1. Find a clear glomerular plane of interest**
 
-<small>Objective Zoom: 1X</small>
+Objective Zoom: 1X
 
 Each OB can be modeled using a spere, with glomeruli along the surface and the subsequent excitatory cells extending radially inward. As such, when mapping daughter MCs to their respective parement glomeruli, it is promising to start at a point at the top of this sphere so that the daughter MCs are located directly below your selected imaging plane. This isn't crutial, as at times the OB can have bone overgrowths or simply dim glomeruli, but in any case, this will make your life a tad easier going forth.
 
@@ -39,7 +39,7 @@ Repeat this step as many times as necessary.
 
 **2. Take a z-stack under said**
 
-<small>Objective Zoom: 1X</small>
+Objective Zoom: 1X
 
 Once you have located your respective plane, take a z-stack or a stack of TIFFs taken at multiple focal distances to create an image with a greater depth of field. Start the z-stack above any glomeruli and set the end of the imaging to below the mitral cells. Take note of your starting and ending depths (Z values) in order to be best able to relocate your favored imaging planes. Choose a step count that would result in increments of 5 µm. MCs have a cell body diameter of 20 to 30 um, but in attempts to find an imaging plane in which the most MCs appear, this increment has proven to be most effective. 
 
@@ -59,7 +59,7 @@ I would recommend first mapping at the glomerular level (Objective Zoom: 1X) and
 
 Wavesurfer is used to time the stimulus with respect the the mouse's sniff cycle. This is done as the glomeruli and MCs, in response to identical stimulus parameters, experience sniff-cycle dependent fluctuations i ntheir fluorecence. In this way, while mapping daughter MCs, it is imperative to keep the timing constant of the stimulus with respect to sniff-cycle constant. The latency of the single pulse with respect to sniff-cycle enacted in our protocol is 30 µs. The pulse itself is ___µs long.  
 
-[insert running average plot of Glom and MC activation with respect to timing]
+INSERT RUNNING AVERAGE PLOT OF GLOM & MC ACTIVATION WITH RESPECT TO TIMING
 
 For MC mapping, selecting an appropreate power is imperative so that you are not stimulating the surrounding glomeruli beyond what is avoidable. For animals with bright YFP expression at the glomerular layer, apply 2.5V to the AOM which amounts to a $22 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. For animals with dim YFP expression at the glomerular layer, apply 3.0 to 3.5V to the AOM which amounts to a $35$ to $50 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. 
 
@@ -87,16 +87,48 @@ Here is an example of some plots that can be rendered from this step.
 
 ### ODOR-ONLY Imaging
 
-Imaging with an odorant exclusively will allow us to select the odorant which we will use as our background odorant in subsequent imaging sessions. Here are some potential odorants that are worth screening.
+Imaging with an odorant exclusively will allow us to select the one which we will use as our background odorant in subsequent imaging sessions. Here are some potential odorants that are worth screening. 
 
-
-
+| Monomolecular Odorant   | Concentration Diluted in <br> 5 µL of Distilled Water |
+|-------------------------|-------------------------------------------------------|
+| 5Methyl2Hexanone        | 1 µL                                                  |
+| Benzaldehyde            | 2 µL                                                  |
+| Methyl Valerate         | 5 µL                                                  |
+| Ethyl Butyrate          | 8.8 µL                                                |
+| Hexanal                 | 10 µL                                                 |
+| Heptanal                | 10 µL                                                 |
+| 2MBA                    | 10 µL                                                 |
+| Propionic Acid          | 20 µL                                                 |
 
 Odor-only imaging will take 4 imaging sessions, imaging not only at the glomeruli and MC planes, but also at 2 different concentrations: 20 and 100 flow. '20 flow' is associated with 1% SVD or saturated vapor pressure and '100 flow' is associated with 5% SVD. 
 
+We are ideally searching for two odorants. 
+
+1. A strong ligand
+
+_A **ligand** is an odorant which activates the same olfactory receptors as the single glomeruli which we have selected. In this way, a strong ligand will activate the single glomerulus at even very small concentrations while a weak ligand will only activate the single glomeruli at higher concentrations._
+
+This odorant will activate the single glomeruli in question proceding any of its neighboring glomeruli. In other words, a low-concentration of this odorant should be able to activate this glomeruli. Provided that this project aims to study the circuitry involved in olfactory encoding, this odorant is meant to act as a control for which our selected glomeruli's excitation procedes that of neighboring glomeruli. This in turn will allow the subsequent excitation of our selected glomeruli's daughter MCs to follow [SOURCE].
+
+PROVIDE EXAMPLE PLOT
+
+3. A weak ligand
+
+This odorant should activate the selected single glomeruli only after its neighboring glomeruli have been activated. In other words, a low-concentration of this odorant should not be able to activate this glomeruli while a higher concentration should be able to. Provided that this project aims to study the circuitry involved in olfactory encoding, the weak ligand background odorant is meant to provide a source of inhibition for the MCs of our selected glomerulus as it is suspected that the MCs of glomeruli activated prior to our select glomerulus will enact lateral inhibition [SOURCE].
+
+PROVIDE EXAMPLE PLOT
+
+This odorant selection is imperative for the next step 'STIM & ODOR Imaging' where we will explore the interaction between the excitation of the MCs at various latencies with respect to the sniff cycle and background odorant inflicted inhibition.
+
 ### STIM & ODOR Imaging - Replicating Mursel’s Results
 
+This session should be done on the same day as the ODOR & STIM session that is described below. 
 
+This session is meant to verify minimal cross-glomerular stimulation when we are attempting to target the single glomerulus. 
+
+It is important to do this session prior to the ODOR & STIM session as the odors included in the ODOR & STIM session can linger into the ‘stim only’ trials. If for example you chose an inhibitory odor, the fluorescence changes as a result of stimulation-only can be suppressed by this lingering odorant.
+
+Ensure this session follows after the ODOR & STIM session.
 
 ---
 
@@ -131,23 +163,25 @@ Training is conducted with 10 pulses. Each pulse is __ ms long with a __ ms brea
 
 ### Lowering Pulse Count
 
-Now, we train the animal to detect shorter pulse sequences until we reach a single pulse.
+Now, we train the animal to detect shorter pulse-sequences until we reach a single pulse.
 
-During a session, it is possible to drop multiple pulse lengths. For example, you can try running behavior for 50 trials with 8 pulses, then 100 at 6, then 150 at 4. Wait until the animal returns to a 90% success rate before decreasing the pulse count.
+During a single training session it is possible to drop multiple pulse-lengths. For example, you can try running behavior for 50 trials with 8 pulses, then 100 at 6, then 150 at 4. This process is a little arbitrary, but I would wait until the animal returns to a 90% success rate before decreasing the pulse count. 
+
+Making the task too difficult too quickly risks the animal learning a cue outside of the stimulation and licking to that cue instead. From experience, we once lowered the pulse count to 1 too quickly and we saw that the mouse was achieving a 100% success rate. This seemed improbable, so we turned off the stimulation laser and the mouse continued to achieve this high detection rate. As such, it became evident that the  mouse was reacting to a cue external to the stimulation itself. It turned out that there was a pressure imbalance at the nose port only during stim trials. Once we fixed this pressure imbalance, we had to revert back and redo some of the training. By trying to speed up the process of dropping the pulse-train length by maybe two days, we cost the project at least an additional 2 weeks of troubleshooting and retraining. More universally, it is beneficial to be suspicious of overly successful behavior as well. 
 
 ---
 
 ### Psychometric Curve
 
-A psychometric curve will measure the detection rate of the single-pulse stimulation by the power that the stim-laser is set to. The steepest part of this sigmoid curve will be around 75% detection, and we want to understand the power at which this occurs (~80%). 
+In order to understand at what power to set the stimulation laser to, we need to formulate a psychometric curve. A psychometric curve will measure the detection rate of the single-pulse stimulation as the power that the stim-laser is set to in modulated. Specifically, we would like to understand the stimulation power at which the detection rate is approximately ~80%. Why? The psych curve will be in the shape of a sigmoid function. The y-values of this sigmoid function will range from 50% detection or chance-level to 100% detection. As such, the steepest part of this sigmoid function will be around 75% detection at whatever stim-laser power this detection rate occurs. The steepest part of this curve is the section most sensitive to power shifts and resultant detection changes. As such, it is important to find this detection point for two reasons.
 
-This helps in two ways:
-1. To isolate the principal component of odorant encoding: a single glomerulus and its daughter mitral cells.
-2. To measure behavioral output or detection of the stimulation in the presence of a background odorant.
+1. We want to isolate the principal component of odorant encoding: a single glomerulus and its daughter mitral cells. In other words, we want to limit the amount of stimulation that hits surrounding glomeruli and would in theory, render detection easier for the animal.
+2. In the following section, we will be measuring the behavioral output or detection of the stimulation in the presence of a background odorant. In introducing this odorant, we would like for the stimulus detection to be as sensitive to the changes evoked by the background odor as possible. 
+
 
 #### Block Trials
 
-Example power-level lists for some block sessions:
+After trying various methods of acquiring this psychometric curve, we have concluded on the efficacy of the Block Trial method. Here, we split a 300 trial session into blocks of 50 trials where 50% of the trials are Go (single-pulse stim) and 50% of the trials are NoGo (no-stim). Here, we manually set the power-level for each block. The 1st and last blocks should be at the highest power-level (4.0V). The power-levels of the blocks in between the 1st and last block should be randomized so that there aren’t too many blocks at too low of a power (30% of maximum power) where the mouse gives up on detection. An example power-level list for some block-sessions are as follows:
 
 | Day | Maximum AOM Power | Power Levels (% of Maximum Power) |
 |-----|---------------------|--------------------------------|
@@ -162,21 +196,74 @@ Example power-level lists for some block sessions:
 
 INSERT BLOCK TRIAL PLOT
 
+#### Randomized Trial Method (Failed)
+
+In this method, we attempted to colloect detection data by purely randomizing the 
+
+INSERT RANDOMIZED TRIAL PLOT
+
 #### Probe Trial Method (Failed)
 
-We had previously tried making the psychometric curve using non-rewarded probe trials. The probe trials occupied 11% of the Go trials. This small percentage made the acquisition of data very slow considering mice tend to do 300 trials per session. If 150 trials from that session are stimulation Go trials, we would be acquiring approximately 16 data points per session. Furthermore, using probe trials, the mouse would learn the power at which they are mostly rewarded and only lick for the standard power rather than the probes. You would see this on the resultant psych plot day-to-day as the detection became more and more skewed towards the standardized power-level.
+We also tried rendering the psychometric curve using non-rewarded probe trials. The probe trials were non-rewarded and occupied 11% of the Go trials. We further employed a partial-reward system, where only 80% of the non-probe (maximum stim power) Go trials were rewarded. This was put into place to make sure that the mice didn't learn to lick for only the maximum-power Go trials. This paradigm still experineced a few issues.
+
+For one, this small percentage of probe trials made the acquisition of data very slow. Considering mice tend to do 300 trials per session, if 50% of the trials in that session are stimulation Go trials, we would be acquiring approximately 16 probe data points per session. 
+
+Furthermore, despite imposing a partial-reward paradigm, the mice still managed to learn the maximal power level at which they are most likely to be rewarded. You would see this on the resultant psych plot day-to-day as the detection became more and more skewed towards the standardized power-level.
 
 INSERT PROBE TRIAL PLOT
 
 ## Imaging Session with Behavior
 
+Here, we attempt to combine all elements of the experiment up until this point. 
+
+INSERT EXPLANATION OF HYPOTHETICAL PLOTS
+
+INSERT HYPOTHETICAL PLOTS
+
+#### WATER-DEPRIVATION IMPLICATION ON MC IMAGING QUALITY
+
+As you conduct training and take your psychometric curves, it will become evident to you that the quality of your images both at the glomerular and moreso at the MC level become increasingly blurry. Don't panic. This is very likely due to the mouse being in a prolonged state of water deprivation. For this reason, prior to moving onto the next step where we reintroduce imaging, it would be helpful to reintroduce water to the mice. Take some subsequent reference images to verify that water deprivation was in fact the issue with the image quality.
+
+INSERT EXAMPLE WATER DEPRIVATION IMAGES
+
+A few days after reintroducing water, the image quality should significantly improve. Take the water away and shortly after, take a few more days to reinforce the Go-NoGo task with single-pulse stimulation. Once the behavior is back to its original level and the mouse is at 85% of its original body weight, procede to the next imaging step.
+
 ### ODOR & STIM Imaging 
 
-This session should be done on the same day as the ODOR & STIM session that is described below. 
+We will conduct a Gon-NoGo behavioral session, asking the mouse to lick when it detects a stimulation and to withold its lick when a stimualtion is not present. The trials within the session will be split up between 50% Go trials and 50% NoGo trials. The trial types are as follows:
 
-This session is meant to verify minimal cross-glomerular stimulation when we are attempting to target the single glomerulus. 
+* stim-only
 
-It is important to do this session prior to the ODOR & STIM session as the odors included in the ODOR & STIM session can linger into the ‘stim only’ trials. If for example you chose an inhibitory odor, the fluorescence changes as a result of stimulation-only can be suppressed by this lingering odorant.
+The first couple (50) of trials in the session will be a stim-only block. This will allow the mouse to not only acclimate to the task at hand, but will also ensure that the stim-only trials are not contaminated by lingering odorants from prior trials.
 
-Ensure this session follows after the ODOR & STIM session.
+* empty
+
+Empty trials are those trials for which no stimulation or odorant is issued. These trials will be taken as the NoGo blank trials within the initial stim-only block. This is again to ensure that no lingering odorants contaminate these trials.
+
+* odor-only low concentration
+
+This block will be composed of (20) trials. This will give us 10 trials for which 'odor-only low concentration' images can be taken.
+
+After this block, there will be a block of 20 trials of stim-only which will act as a buffer to reinforce the initial behavioral task.
+
+* odor-only high concentration
+
+This block will be composed of (20) trials. This will give us 10 trials for which 'odor-only low concentration' images can be taken.
+
+After this block, there will be a block of 20 trials of stim-only which will act as a buffer to reinforce the initial behavioral task.
+
+* odor+stim low concentration
+
+This block will be composed of (20) trials. This will give us 10 trials for which 'odor-only low concentration' images can be taken.
+
+After this block, there will be a block of 20 trials of stim-only which will act as a buffer to reinforce the initial behavioral task.
+  
+* odor+stim high concentration
+
+This block will be composed of (20) trials. This will give us 10 trials for which 'odor-only low concentration' images can be taken.
+
+After this block, there will be a block of 20 trials of stim-only which will act as a buffer to reinforce the initial behavioral task.
+
+
+
 
