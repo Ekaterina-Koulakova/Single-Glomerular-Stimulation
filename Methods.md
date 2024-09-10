@@ -75,10 +75,24 @@ _By the end of this section, you should have a select single glomerulus that you
 
 ### STIM-ONLY Imaging
 
+In the stimulation-only session, we procede with stimulating the single glomerulus that we chose in the previous step at various latencies. Specifically, the latencies that we have selected are: 10, 30, 60, 120, 180, 240. These latencies were selected for a few reasons. One reason is that these latencies span the entire sniff-cycle, 0 µs being attributed to the mouse's inhilation. In this way, it will be possible to see the fluorescence changes due to the phase of the sniff cycle in response to the same stimulus being presented. Additionally, considering that our aquisition rate is 30 frames/sec, most of these latencies are well divisible by 30, making them easily convertible to frames when analysing the images. 
 
+Stim-only imaging should be conducted in two sessions: one at the glomerul ar level and the next at the MC level. However, it would be best to start with the MC layer as it has been observed that if MCs get stimulated multiple times in the confines of a single day, they diminish significantly in fluorescence. 
+
+The power you should use in stimulating again varies with respect to the ChR2 and GCamp expression in your mouse. For animals with bright expression, apply 2.5V to the AOM which amounts to a $22 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. For animals with dim YFP expression, apply 3.0 to 3.5V to the AOM which amounts to a $35$ to $50 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. 
+
+Here is an example of some plots that can be rendered from this step.
+
+[INSERT STIM-ONLY PLOTS]
 
 ### ODOR-ONLY Imaging
 
+Imaging with an odorant exclusively will allow us to select the odorant which we will use as our background odorant in subsequent imaging sessions. Here are some potential odorants that are worth screening.
+
+
+
+
+Odor-only imaging will take 4 imaging sessions, imaging not only at the glomeruli and MC planes, but also at 2 different concentrations: 20 and 100 flow. '20 flow' is associated with 1% SVD or saturated vapor pressure and '100 flow' is associated with 5% SVD. 
 
 ### STIM & ODOR Imaging - Replicating Mursel’s Results
 
