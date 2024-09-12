@@ -104,7 +104,7 @@ Odor-only imaging will take 4 imaging sessions, imaging not only at the glomerul
 
 We are ideally searching for two odorants. 
 
-1. A strong ligand
+1. A **strong ligand**
 
 _A **ligand** is an odorant which activates the same olfactory receptors as the single glomeruli which we have selected. In this way, a strong ligand will activate the single glomerulus at even very small concentrations while a weak ligand will only activate the single glomeruli at higher concentrations._
 
@@ -112,7 +112,7 @@ This odorant will activate the single glomeruli in question proceding any of its
 
 PROVIDE EXAMPLE PLOT
 
-3. A weak ligand
+3. A **weak ligand**
 
 This odorant should activate the selected single glomeruli only after its neighboring glomeruli have been activated. In other words, a low-concentration of this odorant should not be able to activate this glomeruli while a higher concentration should be able to. Provided that this project aims to study the circuitry involved in olfactory encoding, the weak ligand background odorant is meant to provide a source of inhibition for the MCs of our selected glomerulus as it is suspected that the MCs of glomeruli activated prior to our select glomerulus will enact lateral inhibition [SOURCE].
 
@@ -134,12 +134,23 @@ Ensure this session follows after the ODOR & STIM session.
 
 ## Behavioral Training
 
+_Prior to this step, it is imperative to water-deprive the mice. We try to keep the mice at 85% of their original body weight prior to water deprivation throughout the steps outlined in this 'Behavioral Training' section._
+
 ### Stim-Detection Training
 
-Train the mice to detect the stimulation of their single glom using a Go-NoGo training paradigm.
+Train the mice to detect the optogenetic stimulation of the single glomerulus that you have selected using a Go-NoGo training paradigm. Mice are expected to lick when there is a stimulus presented and to withhold their lick for 'blank' trials when a stimulus is withheld. The below plot shows the success rates of 7 individual mice learning the single glomerulus detection task over the coarse of 6 to 7 days. 
 
-**Stimulation Power**  
-Some mice should start with 3.0V training, others with as high as 3.5V applied to the power source. Mice vary in their channelrhodopsin levels in OSNs. If the detection rate reaches a constant 80%, try increasing the power.
+<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_Training_combinedmice.PNG" alt="Alt text" width="800"/>
+
+The code to this plot is linked [here](). 
+
+On the x-axis, you see numbered sessions, one session being conducted per day and varying greatly in length depending on the motivation of the mouse and the stubborness of the trainer on that day. Typically, mice start with sessions that span 100 to 200 individual trials working their way up to sessions spanning up to 500 trials. 
+
+On the y-axis you see the success rate that mice acheive in the detection task. Specifically, you see that this detection rate starts on day 1 at 0.5 or chance level and slowly increases as the days procede to 0.9 to 1.0. The shaded region on this plot shows a 90% confidence interval, calculated using the statistical methods outlined on this [page](https://www.dummies.com/article/academics-the-arts/science/biology/the-confidence-interval-around-a-proportion-149351/).
+
+
+**Training Stimulation Parameters**  
+Mice should start their detection training with power densities between $50$ and $58 \text{mW}/\text{mm}^2$ depending on the strength of their channelrhodopsin (ChR2) expression in the OSNs. If the detection rate curve begins to plateau at a percentage below 90%, it may be necessary to increase your stimulation power. 
 
 | Laser Power Control [V] | Power Density at Window ( $\text{mW}/\text{mm}^2$ )  |
 |-------------------------|-----------------------------------|
@@ -151,13 +162,17 @@ Some mice should start with 3.0V training, others with as high as 3.5V applied t
 | 3.50                    | 50                                |
 | 4.00                    | 58                                |
 | 4.50                    | 61                                |
+_Conditions_
+* AOM set to 3.5V
+* DMD has 200 x 200 pixels corresponding to 0.25mm²
 
-**Conditions**  
-- AOM set to 3.5V
-- DMD has 200 x 200 pixels corresponding to 0.25mm²
+Training is conducted with a stimulation consisting of 10 pulses: each pulse having a duration of __ ms with __ ms intervals in between.
 
-**Pulse parameters**  
-Training is conducted with 10 pulses. Each pulse is __ ms long with a __ ms break in between pulses.
+**Training Using Pavlov**  
+
+In a Pavlovian conditioning experiment, a contingency is arranged between the presentation of the neutral stimulus, and the delivery of a biologically significant outcome, so that the animal learns that a specific stimulus predicts the impending delivery of the unconditioned stimulus.
+
+EXAMPLE PLOT WITH SINGLE MOUSE TRAINING
 
 ---
 
