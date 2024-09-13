@@ -100,20 +100,3 @@ For one, this small percentage of probe trials made the acquisition of data very
 Furthermore, despite imposing a partial-reward paradigm, the mice still managed to learn the maximal power level at which they are most likely to be rewarded. You would see this on the resultant psych plot day-to-day as the detection became more and more skewed towards the standardized power-level.
 
 INSERT PROBE TRIAL PLOT
-
-## Imaging Session with Behavior
-
-Here, we attempt to combine all elements of the experiment up until this point. 
-
-INSERT EXPLANATION OF HYPOTHETICAL PLOTS
-
-INSERT HYPOTHETICAL PLOTS
-
-#### WATER-DEPRIVATION IMPLICATION ON MC IMAGING QUALITY
-
-As you conduct training and take your psychometric curves, it will become evident to you that the quality of your images both at the glomerular and moreso at the MC level become increasingly blurry. Don't panic. This is very likely due to the mouse being in a prolonged state of water deprivation. For this reason, prior to moving onto the next step where we reintroduce imaging, it would be helpful to reintroduce water to the mice. Take some subsequent reference images to verify that water deprivation was in fact the issue with the image quality.
-
-INSERT EXAMPLE WATER DEPRIVATION IMAGES
-
-A few days after reintroducing water, the image quality should significantly improve. Take the water away and shortly after, take a few more days to reinforce the Go-NoGo task with single-pulse stimulation. Once the behavior is back to its original level and the mouse is at 85% of its original body weight, procede to the next imaging step.
-
