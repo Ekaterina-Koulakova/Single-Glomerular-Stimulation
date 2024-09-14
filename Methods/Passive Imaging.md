@@ -1,5 +1,5 @@
-# Table of Contents
-1. [Passive Imaging](#passive-imaging)
+# Passive Imaging
+
    - [Mitral Cell Mapping](#mitral-cell-mapping)
    - [STIM-ONLY Imaging](#stim-only-imaging)
    - [ODOR-ONLY Imaging](#odor-only-imaging)
