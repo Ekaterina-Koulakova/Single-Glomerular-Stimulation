@@ -1,5 +1,5 @@
-# Table of Contents
-3. [Imaging Session with Behavior](#imaging-session-with-behavior)
+# Imaging Session with Behavior
+
    - [ODOR & STIM Behavioral Imaging](#odor-stim-behavior-imaging)
 
 ---
