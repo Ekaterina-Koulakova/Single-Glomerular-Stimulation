@@ -5,7 +5,7 @@ As part of my ongoing collaborative research with two postdocs, I am exploring h
 
 For more on the theory behind this project, please reference the [Literature Review](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Literature%20Review.md).
 
-For a deep dive explanation of the experimental flow developed for this work, please refer to the [Methods](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods.md) section as well as the referenced code files.
+For a deep dive explanation of the experimental flow developed for this work, please refer to the [Methods](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/tree/main/Methods) section as well as the referenced code files.
 
 #### Mentors and Collaborators
 
