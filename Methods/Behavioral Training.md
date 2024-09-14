@@ -1,5 +1,5 @@
-# Table of Contents
-2. [Behavioral Training](#behavioral-training)
+# Behavioral Training
+
    - [Stim-Detection Training](#stim-detection-training)
    - [Lowering Pulse Count](#lowering-pulse-count)
    - [Psychometric Curve](#psychometric-curve)
