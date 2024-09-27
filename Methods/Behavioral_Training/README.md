@@ -16,7 +16,7 @@ Train the mice to detect the optogenetic stimulation of the single glomerulus th
 
 <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_Training_combinedmice.PNG" alt="Alt text" width="800"/>
 
-The code to this plot is linked [here](). 
+The code to this plot is linked [here](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipynb). 
 
 On the x-axis, you see numbered sessions, one session being conducted per day and varying greatly in length depending on the motivation of the mouse and the stubborness of the trainer on that day. Typically, mice start with sessions that span 100 to 200 individual trials working their way up to sessions spanning up to 500 trials. 
 
