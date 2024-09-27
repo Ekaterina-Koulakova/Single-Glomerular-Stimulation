@@ -36,6 +36,7 @@ Mice should start their detection training with power densities between $50$ and
 | 3.50                    | 50                                |
 | 4.00                    | 58                                |
 | 4.50                    | 61                                |
+
 _Conditions_
 * AOM set to 3.5V
 * DMD has 200 x 200 pixels corresponding to 0.25mm²
