@@ -7,6 +7,12 @@ For more on the theory behind this project, please reference the [Literature Rev
 
 For a deep dive explanation of the experimental flow developed for this work, please refer to the [Methods](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/tree/main/Methods) section as well as the referenced code files.
 
+#### Techniques Employed
+
+* in vivo 2P imaging of neural activity in the olfactory bulb 
+* analysis of behavioral assays using Python [LINK](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/tree/main/Methods/Behavioral_Training)
+* analysis of optical images produced using MATLAB [LINK](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/tree/main/Methods/Passive_Imaging)
+
 #### Mentors and Collaborators
 
 * **[Mursel Karadas](https://scholar.google.dk/citations?user=9hQ-FLgAAAAJ&hl=en)** Postdoctoral Scientist at the NYU Neuroscience Institute
