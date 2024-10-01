@@ -5,9 +5,9 @@
    - [Psychometric Curve](#psychometric-curve)
 ---
 
-## Behavioral Training
-
 _Prior to this step, we water-deprive the mice. We try to keep the mice at 85% of their original body weight throughout the following steps outlined in the 'Behavioral Training' section._
+
+At the end of this Behavioral Training procedure, you should have a mouse trained in a Go-NoGo paradigm to lick when its target glomerulus is stimulated and to without its lick when a stimulus is witheld. You will then isolate the activation of only this principle component of olfactory encoding by lowering the stimulation to a single pulse. By creating a psychometric curve, you can find the threshold power density at which the mouse is not longer able to detect the stimulation of its selected single glomerulus.
 
 ### Stim-Detection Training
 
@@ -102,15 +102,19 @@ We also tried rendering the psychometric curve using non-rewarded probe trials. 
 
 The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_combinedmice.py). 
 
-This paradigm experineced a few issues which will be discussed below.
+**This data-acquisition method has a few issues which will be discussed below.**
 
-1. As mentioned previously, only 11% of the stim trials were probes. This small percentage of probe trials made the acquisition of data very slow. Considering mice tend to do 300 trials per session, if 50% of the trials in that session are stimulation Go trials, we would be acquiring approximately 16 probe data points per session. Below is an example probe-acquisition accross 4 sessions for a single mouse. 
+**1. very few data-points collected accross trials**
+
+As mentioned previously, only 11% of the stim trials were probes. This small percentage of probe trials made the acquisition of data very slow. Considering mice tend to do 300 trials per session, if 50% of the trials in that session are stimulation Go trials, we would be acquiring approximately 16 probe data points per session. Below is an example probe-acquisition accross 4 sessions for a single mouse. 
 
 <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Probe_mouse0070.png" alt="Alt text" width="800"/>
 
 This plot is mainly used to monitor the data collection process from day to day to see wich power-levels are needed to be probed further for the next session. You can see that for $~60 \ \text{mW}/\text{mm}^2$, the histogram is missing a bar and this is due to 89% (100-11%) of all of the stim trials being conducted at this maximum power density. The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_singlemouse.py). 
 
-2. Despite imposing a partial-reward paradigm, the mice still managed to learn to lick for the maximal power level at which they were most likely to be rewarded. You can see this on the resultant psych plot as the sessions progressed and the detection progressively became skewed towards the maximum power-level. 
+**2. mouse learns to lick for only maximum power despite partial reinforcement**
+
+Despite imposing a partial-reward paradigm, the mice still managed to learn to lick for the maximal power level at which they were most likely to be rewarded. You can see this on the resultant psych plot as the sessions progressed and the detection progressively became skewed towards the maximum power-level. 
 
 Below is an example plot for the mouse that was analyzed above where the success-rate of the various probes are shown broken into the four seperate sessions run during this data aquisition. 
 
@@ -120,7 +124,9 @@ The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single
 
 In all, not only are you limited in the number of probe-aquisitions per session that you are able to acheive, but you are also limited in the number of sessions that you are able to run before the mouse learns to lick for the standard maximum power.
 
-3. Finally, you may have noticed that on the [Block Method plot](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Block_combinedmice.png), the y-axis limits are 0.5 to 1.0 while for the Probe Method plots above, the y-axis ranges from 0.0 to 1.0. Why? To answer this 
+**3. diffifult to incorporate blank trilas into consideration of stimulation detection rate**
+
+Finally, you may have noticed that on the [Block Method plot](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Block_combinedmice.png), the y-axis limits are 0.5 to 1.0 while for the Probe Method plots above, the y-axis ranges from 0.0 to 1.0. Why? To answer this 
  For the block method, because a single power was used for a stimulation for a single plot, 
 
 #### Randomized Trial Method (Failed)
@@ -128,3 +134,8 @@ In all, not only are you limited in the number of probe-aquisitions per session 
 In the Randomized Trial Method, we attempted to collect detection data by randomizing the powers of the stimulation throughout the Go-NoGo task. Similar to the Probe Trial Method, the powers that were not the maximum were not rewarded and the maximum stimulation power was rewarded 80% of the time. This in itself could have been to the method's detriment as it shared its failure with the Probe Trial Method: the mouse learned to lick only for the partially rewarded maximum stimulation power.
 
 A plot for this is currently unavailable.
+
+
+
+
+
