@@ -15,7 +15,7 @@ Train the mice to detect the optogenetic stimulation of the single glomerulus th
 
 <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_Training_combinedmice.PNG" alt="Alt text" width="800"/>
 
-The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipynb). 
+The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipy). 
 
 On the x-axis, you see numbered sessions, one session being conducted per day and varying greatly in length depending on the motivation of the mouse and the stubborness of the trainer on that day. Typically, mice start with sessions that span 100 to 200 individual trials working their way up to sessions spanning up to 500 trials. If you are having trouble extending your session length after a week, the issue may be that you are providing too much water per trial.
 
@@ -49,7 +49,7 @@ Below is a plot demonstrating the coarse of a single mouse's training employing 
 
 <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_Training_mouse0691.png" alt="Alt text" width="800"/>
 
-The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_singlemouse.ipynb). 
+The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_singlemouse.py). 
 
 **Why does the plot showing a combination of all of the training sessions for all mice not have the same check-mark appearance?** This single-mouse plot has a disproportionately higher detection-rate for the first couple of sessions due to the higher probability of trials being rewarded with pavlov. This does not necessarily mean that the mouse actually detected the stimulation, just that the reward was administered. If you take a closer look at the [code](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipynb) for the combined training plot, we specifically remove trials during which a pavlovian reward was administered from being considered in the detection-rate calculations. 
 
@@ -71,9 +71,9 @@ In order to understand at what power to set the stimulation laser to, we need to
 2. In the following section, we will be measuring the behavioral output or detection of the stimulation in the presence of a background odorant. In introducing this odorant, we would like for the stimulus detection to be as sensitive to the changes evoked by the background odor as possible. 
 
 
-#### Block Trial Method (Succeeded)
+#### Block Method (Succeeded)
 
-After trying various methods of acquiring this psychometric curve, we have concluded on the efficacy of the Block Trial Method. Here, we split a 300 trial session into blocks of 50 trials where 50% of the trials are Go (single-pulse stim) and 50% of the trials are NoGo (no-stim). We pseudo-randomly set the power-level for each block. The first and last blocks should be set to the highest power-level. The power-levels of the blocks in between the first and last block should be randomized so that there aren’t too many blocks at too low of a power (30% of maximum power) where the mouse gives up on detection. An example power-level list for some block-sessions are as follows:
+After trying various methods of acquiring this psychometric curve, we have concluded on the efficacy of the Block Method. Here, we split a 300 trial session into blocks of 50 trials where 50% of the trials are Go (single-pulse stim) and 50% of the trials are NoGo (no-stim). We pseudo-randomly set the power-level for each block. The first and last blocks should be set to the highest power-level. The power-levels of the blocks in between the first and last block should be randomized so that there aren’t too many blocks at too low of a power (30% of maximum power) where the mouse gives up on detection. An example power-level list for some block-sessions are as follows:
 
 | Day | Maximum AOM Power | Power Levels (% of Maximum Power) |
 |-----|---------------------|--------------------------------|
@@ -86,26 +86,45 @@ After trying various methods of acquiring this psychometric curve, we have concl
 | 7 | 4.0V applied $58 \ \text{mW}/\text{mm}^2$    | [100, 70, 65, 95, 35, 60, 100] |
 | 8 | 4.0V applied $58 \ \text{mW}/\text{mm}^2$    | [100, 80, 40, 70, 50, 25, 100] |
 
-Below is an example of a Physichometric Curve taken using the Block Trial Method conducted with only a single mouse. For this specific mouse, only 7 sessions were conducted. This is one of the reasons why the lower power levels have a greater uncertainty. At this point in the project, we only wanted a rough estimate of what the power should be for 80% detection and so this level of data was sufficient.
+Below is an example of a Physichometric Curve taken using the Block Method conducted with only a single mouse. For this specific mouse, only 7 sessions were conducted. This is one of the reasons why the lower power levels have a greater uncertainty. At this point in the project, we only wanted a rough estimate of what the power should be for 80% detection and so this level of data was sufficient.
 
-<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_combinedmice.png" alt="Alt text" width="800"/>
+<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Block_combinedmice.png" alt="Alt text" width="800"/>
 
 The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Block_combinedmice.py). 
 
 The most important take-away from this method of cunducting the psychometric curve is that the mouse does not learn to lick for only the maximum power-level. This was an issue encountered with the other methods employed as will be discussed below. 
 
+#### Probe Method (Failed)
+
+We also tried rendering the psychometric curve using non-rewarded probe trials. The probe trials were non-rewarded and occupied 11% of the Go trials. We further employed a partial-reward system, where only 80% of the non-probe (maximum stim power) Go trials were rewarded. This was put into place to make sure that the mice didn't learn to lick for only the maximum-power Go trials. Below is a summary figure of the Probe Method for the two mice that we applied the above paradigm with. The shaded region represents a 95% confidence interval which takes into account the number of trials that were aquired for each probe.
+
+<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Probe_combinedmice.png" alt="Alt text" width="800"/>
+
+The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_combinedmice.py). 
+
+This paradigm experineced a few issues which will be discussed below.
+
+1. As mentioned previously, only 11% of the stim trials were probes. This small percentage of probe trials made the acquisition of data very slow. Considering mice tend to do 300 trials per session, if 50% of the trials in that session are stimulation Go trials, we would be acquiring approximately 16 probe data points per session. Below is an example probe-acquisition accross 4 sessions for a single mouse. 
+
+<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Probe_mouse0070.png" alt="Alt text" width="800"/>
+
+This plot is mainly used to monitor the data collection process from day to day to see wich power-levels are needed to be probed further for the next session. You can see that for $~60 \ \text{mW}/\text{mm}^2$, the histogram is missing a bar and this is due to 89% (100-11%) of all of the stim trials being conducted at this maximum power density. The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_singlemouse.py). 
+
+2. Despite imposing a partial-reward paradigm, the mice still managed to learn to lick for the maximal power level at which they were most likely to be rewarded. You can see this on the resultant psych plot as the sessions progressed and the detection progressively became skewed towards the maximum power-level. 
+
+Below is an example plot for the mouse that was analyzed above where the success-rate of the various probes are shown broken into the four seperate sessions run during this data aquisition. 
+
+<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Probe_mouse0070_sessions.png" alt="Alt text" width="800"/>
+
+The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_singlemouse_sessions.py). 
+
+In all, not only are you limited in the number of probe-aquisitions per session that you are able to acheive, but you are also limited in the number of sessions that you are able to run before the mouse learns to lick for the standard maximum power.
+
+3. Finally, you may have noticed that on the [Block Method plot](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Block_combinedmice.png), the y-axis limits are 0.5 to 1.0 while for the Probe Method plots above, the y-axis ranges from 0.0 to 1.0. Why? To answer this 
+ For the block method, because a single power was used for a stimulation for a single plot, 
+
 #### Randomized Trial Method (Failed)
 
-In this method, we attempted to colloect detection data by purely randomizing the 
+In the Randomized Trial Method, we attempted to collect detection data by randomizing the powers of the stimulation throughout the Go-NoGo task. Similar to the Probe Trial Method, the powers that were not the maximum were not rewarded and the maximum stimulation power was rewarded 80% of the time. This in itself could have been to the method's detriment as it shared its failure with the Probe Trial Method: the mouse learned to lick only for the partially rewarded maximum stimulation power.
 
-INSERT RANDOMIZED TRIAL PLOT
-
-#### Probe Trial Method (Failed)
-
-We also tried rendering the psychometric curve using non-rewarded probe trials. The probe trials were non-rewarded and occupied 11% of the Go trials. We further employed a partial-reward system, where only 80% of the non-probe (maximum stim power) Go trials were rewarded. This was put into place to make sure that the mice didn't learn to lick for only the maximum-power Go trials. This paradigm still experineced a few issues.
-
-For one, this small percentage of probe trials made the acquisition of data very slow. Considering mice tend to do 300 trials per session, if 50% of the trials in that session are stimulation Go trials, we would be acquiring approximately 16 probe data points per session. 
-
-Furthermore, despite imposing a partial-reward paradigm, the mice still managed to learn the maximal power level at which they are most likely to be rewarded. You would see this on the resultant psych plot day-to-day as the detection became more and more skewed towards the standardized power-level.
-
-INSERT PROBE TRIAL PLOT
+A plot for this is currently unavailable.
