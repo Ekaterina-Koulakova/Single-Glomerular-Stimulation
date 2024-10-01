@@ -5,21 +5,23 @@
    - [Psychometric Curve](#psychometric-curve)
 ---
 
-_Prior to this step, we water-deprive the mice. We try to keep the mice at 85% of their original body weight throughout the following steps outlined in the 'Behavioral Training' section._
+_Prior to this training phase, mice were water-deprived until they reached 85% of their original body-weight. This body weight was maintained throughout the following 'Behavioral Training' section._
 
-At the end of this Behavioral Training procedure, you should have a mouse trained in a Go-NoGo paradigm to lick when its target glomerulus is stimulated and to without its lick when a stimulus is witheld. You will then isolate the activation of only this principle component of olfactory encoding by lowering the stimulation to a single pulse. By creating a psychometric curve, you can find the threshold power density at which the mouse is not longer able to detect the stimulation of its selected single glomerulus.
+At the end of this Behavioral Training procedure, the mice should be trained in a Go-NoGo paradigm to lick in response to stimulation of the target glomerulus and to withhold licking when no stimulus is presented. To isolate the principle component of olfactory encoding, we suggest to lower the stimulation to a single pulse. This precision can furhter be instantiated by generating a psychometric curve, which will allow you to determine the threshold power density at which the mouse is no longer able to detect the stimulation.
 
 ### Stim-Detection Training
 
-Train the mice to detect the optogenetic stimulation of the single glomerulus that you have selected using a Go-NoGo training paradigm. Mice are expected to lick when there is a stimulus presented and to withhold their lick for 'blank' trials when a stimulus is withheld. The below plot shows the success rates of 7 individual mice learning the single glomerulus detection task over the coarse of 6 to 7 days. 
+The mice were trained to detect optogenetic stimulation of a selected single glomerulus using a Go/No-Go paradigm. Mice were conditioned to lick in response to a presented stimulus and to withhold licking during 'blank' trials where no stimulus was presented. The plot below illustrates the success rates of seven individual mice as they learned the single glomerulus detection task over the course of 6 to 7 days.
 
 <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_Training_combinedmice.PNG" alt="Alt text" width="800"/>
 
 The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipy). 
 
-On the x-axis, you see numbered sessions, one session being conducted per day and varying greatly in length depending on the motivation of the mouse and the stubborness of the trainer on that day. Typically, mice start with sessions that span 100 to 200 individual trials working their way up to sessions spanning up to 500 trials. If you are having trouble extending your session length after a week, the issue may be that you are providing too much water per trial.
+On the x-axis, the sessions are numbered with one session being conducted per day. The length of each session varied in length depending on the motivation of the mouse and the stubborness of the trainer on that day.  Typically, mice began with sessions of 100 to 200 individual trials, gradually working up to sessions with as many as 500 trials. If extending session lengths becomes difficult after a week, the issue may stem from providing too much water per trial.
 
-On the y-axis you see the success rate that mice acheive in the detection task. Specifically, you see that this detection rate starts on day 1 at 0.5 or chance level and slowly increases as the days procede to 0.9 to 1.0. The shaded region on this plot shows a 95% confidence interval, calculated using the statistical methods outlined on this [page](https://www.dummies.com/article/academics-the-arts/science/biology/the-confidence-interval-around-a-proportion-149351/).
+The y-axis represents the success rate of mice in the detection task. As shown, the detection rate begins at chance level (0.5) on day 1 and steadily increases over time, reaching between 0.9 and 1.0 by the end of training. The shaded region in the plot represents a 95% confidence interval, calculated using the statistical methods outlined [here](https://www.dummies.com/article/academics-the-arts/science/biology/the-confidence-interval-around-a-proportion-149351/).
+
+The most effective stimulus-to-blank trial ratio for both training and continued performance was found to be 0.5 to 0.5. This ratio is optimal because mice tend to have a bias toward licking. If the frequency of stimulus trials exceeds 50%, mice learn to lick on most trials to maximize reward. At a 50% stimulus probability, mice are more motivated to perform the task accurately to avoid the punishment (a 7-second time-out) for licking on a blank trial.
 
 **Training Stimulation Parameters**  
 Mice should start their detection training with power densities between $50$ and $58 \text{mW}/\text{mm}^2$ depending on the strength of their channelrhodopsin (ChR2) expression in the OSNs. If the detection rate curve begins to plateau at a percentage below 90%, it may be necessary to increase your stimulation power. 
@@ -43,24 +45,24 @@ Training is conducted with a stimulation consisting of 10 pulses: each pulse hav
 
 **Training Using Pavlov**  
 
-In a Pavlovian conditioning experiment, a contingency is arranged between the presentation of the neutral stimulus, and the delivery of a biologically significant outcome. In our case, we are stimulating a single glomerulus on the mouse's olfactory bulb and training the mouse to lick a spout delivering water to signify its detection of the stimulus. However. when we first begin the training, the naive mouse has never 1. felt the stimulus 2. licked for water. For this reason, we employ _pavlovlovian trianing_ in order to facilitate this connection for the mouse: _if the mouse feels a stimulus and licks the spout, it will receive water_.
+**In a Pavlovian conditioning experiment, a contingency is arranged between the presentation of the neutral stimulus, and the delivery of a biologically significant outcome.**  In our case, we stimulate a single glomerulus in the mouse's olfactory bulb and train the mouse to lick a spout for water to indicate detection of the stimulus presented. However, at the onset of training, the naive mouse has neither experienced the stimulus nor learned to lick for water. To fascilitate this association, we employ _pavlovlovian trianing_ to help the mouse connect the stimulus with the reward: _if the mouse detects a stimulus and licks the spout, it will receive water_.
 
-Below is a plot demonstrating the coarse of a single mouse's training employing pavlov. You will see that on the initial trials, the probability that a trial will be pavlovian or in other terms, will be issued a reward regardless of the mouse's actions will be quite high. As the days of training procede, we will gradually diminish pavlov as the mouse begins to learn the contingency.
+Below is a plot showing the progression of a single mouse's training using Pavlovian conditioning. Initially, the likelihood that a trial will be pavlovian—meaning the mouse receives a reward regardless of its behavior—is quite high. As the training progresses and the mouse learns the contingency between the stimulus and the reward we gradually reduce the frequency of pavlovian trials as seen below.
 
 <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_Training_mouse0691.png" alt="Alt text" width="800"/>
 
 The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_singlemouse.py). 
 
-**Why does the plot showing a combination of all of the training sessions for all mice not have the same check-mark appearance?** This single-mouse plot has a disproportionately higher detection-rate for the first couple of sessions due to the higher probability of trials being rewarded with pavlov. This does not necessarily mean that the mouse actually detected the stimulation, just that the reward was administered. If you take a closer look at the [code](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipynb) for the combined training plot, we specifically remove trials during which a pavlovian reward was administered from being considered in the detection-rate calculations. 
+**Why doesn't the plot showing a combination of all training sessions for all mice exhibit the same check-mark trend?** The single-mouse plot shows a disproportionately higher detection rate during the first few sessions due to the increased likelihood of trials being rewarded via pavlovian conditioning. This doesn’t necessarily indicate that the mouse successfully detected the stimulus, but rather that the reward was automatically given. In the combined training plot, we specifically exclude trials where a Pavlovian reward was administered from the detection-rate calculations. If you review the [code](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipynb) for the combined training plot, you'll notice that pavlovian trials were filtered out to provide a more accurate representation of the actual detection performance across all mice.
 
 ---
 ### Lowering Pulse Count
 
-Now, we train the animal to detect shorter pulse-sequences until we reach a single pulse.
+Now we train the animal to detect progressively shorter pulse sequences until it can detect a single pulse.
 
-During a single training session it is possible to drop multiple pulse-lengths. For example, you can try running behavior for 50 trials with 8 pulses, then 100 at 6, then 150 at 4. This process is a little arbitrary, but I would wait until the animal returns to a 90% success rate before decreasing the pulse count. 
+Within a single training session, multiple pulse lengths can be tested. For instance, you might conduct 50 trials with 8 pulses, 100 trials with 6 pulses, and 150 trials with 4 pulses. While this process is somewhat arbitrary, it is advisable to wait until the animal consistently reaches a 90% success rate before reducing the pulse count further.
 
-Making the task too difficult too quickly risks the animal learning a cue outside of the stimulation and licking to that cue instead. From experience, we once lowered the pulse count to 1 too quickly and we saw that the mouse was achieving a 100% success rate. This seemed improbable, so we turned off the stimulation laser and the mouse continued to achieve this high detection rate. As such, it became evident that the  mouse was reacting to a cue external to the stimulation itself. It turned out that there was a pressure imbalance at the nose port only during stim trials. Once we fixed this pressure imbalance, we had to revert back and redo some of the training. By trying to speed up the process of dropping the pulse-train length by maybe two days, we cost the project at least an additional 2 weeks of troubleshooting and retraining. Overall, it is beneficial to be suspicious of overly successful behavior. 
+Rushing this process can lead to the animal learning to respond to a cue unrelated to the stimulation. In one instance, we reduced the pulse count to a single pulse too quickly and observed a 100% success rate, which seemed unlikely. To investigate, we turned off the stimulation laser, yet the mouse continued to perform at this high detection rate. It became clear that the mouse was responding to an external cue rather than the stimulation itself. We discovered a pressure imbalance at the nose port that only occurred during stimulation trials. After correcting the issue, we had to backtrack and retrain the mouse, which delayed the project by at least two weeks. In summary, it's important to be cautious of unusually high success rates, as they may indicate the animal is learning an unintended cue.
 
 ---
 ### Psychometric Curve
@@ -116,7 +118,7 @@ This plot is mainly used to monitor the data collection process from day to day 
 
 Despite imposing a partial-reward paradigm, the mice still managed to learn to lick for the maximal power level at which they were most likely to be rewarded. You can see this on the resultant psych plot as the sessions progressed and the detection progressively became skewed towards the maximum power-level. 
 
-Below is an example plot for the mouse that was analyzed above where the success-rate of the various probes are shown broken into the four seperate sessions run during this data aquisition. 
+Below is an example plot for the mouse that was analyzed above where the success-rate of the various probes are shown broken into the four seperate sessions run during this data acquisition. 
 
 <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Probe_mouse0070_sessions.png" alt="Alt text" width="800"/>
 
@@ -126,16 +128,12 @@ In all, not only are you limited in the number of probe-aquisitions per session 
 
 **3. diffifult to incorporate blank trilas into consideration of stimulation detection rate**
 
-Finally, you may have noticed that on the [Block Method plot](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Block_combinedmice.png), the y-axis limits are 0.5 to 1.0 while for the Probe Method plots above, the y-axis ranges from 0.0 to 1.0. Why? To answer this 
- For the block method, because a single power was used for a stimulation for a single plot, 
+Finally, you may have noticed that on the [Block Method plot](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/SGS_PsychCurve_Block_combinedmice.png), the y-axis limits are 0.5 to 1.0 while for the Probe Method plots above, the y-axis ranges from 0.0 to 1.0. This is because the Block Method allows us to take the coinciding blank trials into consideration. While running probe trials, one can only take a running average of the surrounding blank trials into consideration, but even these blank trials can be successful simply bc the power presented right before the considered range of trials was higher than the one being probed. It is this inability to reliably incorporate blank trials into the detection rate that renders this method weaker. 
+
+Why consider blank trials? A mouse is biased towards licking for water rather than witholding its lick. In other words, a mouse can lick for a stimulation presentation regardless of if it detecting the stimulus or not. For this reason, the mouse witholding its lick on blank trials is just as important to consider and lends creadence to the mouse's decision to eventually lick post-stim presentation.  
 
 #### Randomized Trial Method (Failed)
 
 In the Randomized Trial Method, we attempted to collect detection data by randomizing the powers of the stimulation throughout the Go-NoGo task. Similar to the Probe Trial Method, the powers that were not the maximum were not rewarded and the maximum stimulation power was rewarded 80% of the time. This in itself could have been to the method's detriment as it shared its failure with the Probe Trial Method: the mouse learned to lick only for the partially rewarded maximum stimulation power.
 
 A plot for this is currently unavailable.
-
-
-
-
-
