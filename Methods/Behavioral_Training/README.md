@@ -3,7 +3,7 @@
    - [Stim-Detection Training](#stim-detection-training)
    - [Lowering Pulse Count](#lowering-pulse-count)
    - [Psychometric Curve](#psychometric-curve)
-   - [Single-Pulse Stim Detection at Varying Latencies](#varying-latencies)
+   - [Single-Pulse Stim Detection at Varying Latencies](#single-pulse-stim-detection-at-varying-latencies)
 ---
 
 _Prior to this training phase, mice were water-deprived until they reached 85% of their original body-weight. This body weight was maintained throughout the following 'Behavioral Training' section._
