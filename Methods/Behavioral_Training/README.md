@@ -143,5 +143,7 @@ A plot for this is currently unavailable.
 
 In this section, we will evaluate whether single-pulse stimulation at the identified 80% detection power can be detected by the mouse at various latencies relative to the sniff cycle. This will be conducted using the Probe Method, where 11% of stimulation trials will be presented at the specified probe latencies below. Stimulations delivered at the default latency will be partially rewarded (80% of trials), while probe trials will not receive any reward.
 
-Default Latency: 50 ms
-Latency Probes: 10 ms, 60 ms, 120 ms, 180 ms
+* Default Latency: 50 ms
+* Latency Probes: 10 ms, 60 ms, 120 ms, 180 ms
+
+**Need to reproduce this plot.**
