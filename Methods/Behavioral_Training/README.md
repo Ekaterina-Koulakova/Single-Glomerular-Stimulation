@@ -3,12 +3,14 @@
    - [Stim-Detection Training](#stim-detection-training)
    - [Lowering Pulse Count](#lowering-pulse-count)
    - [Psychometric Curve](#psychometric-curve)
+   - [Single-Pulse Stim Detection at Varying Latencies](#varying-latencies)
 ---
 
 _Prior to this training phase, mice were water-deprived until they reached 85% of their original body-weight. This body weight was maintained throughout the following 'Behavioral Training' section._
 
 At the end of this Behavioral Training procedure, the mice should be trained in a Go-NoGo paradigm to lick in response to stimulation of the target glomerulus and to withhold licking when no stimulus is presented. To isolate the principle component of olfactory encoding, we suggest to lower the stimulation to a single pulse. This precision can furhter be instantiated by generating a psychometric curve, which will allow you to determine the threshold power density at which the mouse is no longer able to detect the stimulation.
 
+---
 ### Stim-Detection Training
 
 The mice were trained to detect optogenetic stimulation of a selected single glomerulus using a Go/No-Go paradigm. Mice were conditioned to lick in response to a presented stimulus and to withhold licking during 'blank' trials where no stimulus was presented. The plot below illustrates the success rates of seven individual mice as they learned the single glomerulus detection task over the course of 6 to 7 days.
@@ -134,6 +136,7 @@ Why consider blank trials? A mouse is biased towards licking for water rather th
 
 #### Randomized Trial Method (Failed)
 
-In the Randomized Trial Method, we attempted to collect detection data by randomizing the powers of the stimulation throughout the Go-NoGo task. Similar to the Probe Trial Method, the powers that were not the maximum were not rewarded and the maximum stimulation power was rewarded 80% of the time. This in itself could have been to the method's detriment as it shared its failure with the Probe Trial Method: the mouse learned to lick only for the partially rewarded maximum stimulation power.
-
 A plot for this is currently unavailable.
+
+---
+### Single-Pulse Stim Detection at Varying Latencies
