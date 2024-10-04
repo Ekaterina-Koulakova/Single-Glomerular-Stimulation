@@ -9,7 +9,7 @@
 
 ## Passive Imaging
 
-_For specific imaging instructions releted to machinery or software settings, please reference my IMAGING ROOM slides. Here. I will only give a general overview of the project's work-flow._
+_Here, I will give a general overview of the project's work-flow. For specific imaging instructions releted to machinery or software settings, please reference my [IMAGING ROOM](https://docs.google.com/presentation/d/16TTvSaZxpv_2Ob1HF_JzDhX60qj2OGQvm1XAMHGfPwI/edit?usp=sharing) slides._
 
 ### Mitral Cell Mapping
 
