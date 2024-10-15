@@ -51,7 +51,7 @@ Using ScanImage, Wavesurfer, and the DMDControl panel, you can now map the MCs. 
 
 I would recommend first mapping at the glomerular level (Objective Zoom: 1X) and only then proceed to image at the MC layer (Objective Zoom: 2X) at the selected depths from the prior step. This order will allow you to consider if by stimulating a single glomeruli, you are accidentally also axciting a neighboring one. This can be a result of hitting the axons of a neighboring glomeruli which run along the surface of the OB, provided that the stimulation light is columnar as mentioned previously and doesn't exclusively strike the single intended glomeruli.
 
-Wavesurfer is used to time the stimulus with respect the the mouse's sniff cycle. This is done as the glomeruli and MCs, in response to identical stimulus parameters, experience sniff-cycle dependent fluctuations i ntheir fluorecence. In this way, while mapping daughter MCs, it is imperative to keep the timing constant of the stimulus with respect to sniff-cycle constant. The latency of the single pulse with respect to sniff-cycle enacted in our protocol is 30 µs. The pulse itself is ___µs long.  
+Wavesurfer is used to time the stimulus with respect the the mouse's sniff cycle. This is done as the glomeruli and MCs, in response to identical stimulus parameters, experience sniff-cycle dependent fluctuations i ntheir fluorecence. In this way, while mapping daughter MCs, it is imperative to keep the timing constant of the stimulus with respect to sniff-cycle constant. The latency of the single pulse with respect to sniff-cycle enacted in our protocol is 50 ms. The pulse itself is ___ms long.  
 
 INSERT RUNNING AVERAGE PLOT OF GLOM & MC ACTIVATION WITH RESPECT TO TIMING
 
@@ -69,15 +69,29 @@ _By the end of this section, you should have a select single glomerulus that you
 
 ### STIM-ONLY Imaging
 
-In the stimulation-only session, we procede with stimulating the single glomerulus that we chose in the previous step at various latencies. Specifically, the latencies that we have selected are: 10, 30, 60, 120, 180, 240. These latencies were selected for a few reasons. One reason is that these latencies span the entire sniff-cycle, 0 µs being attributed to the mouse's inhilation. In this way, it will be possible to see the fluorescence changes due to the phase of the sniff cycle in response to the same stimulus being presented. Additionally, considering that our aquisition rate is 30 frames/sec, most of these latencies are well divisible by 30, making them easily convertible to frames when analysing the images. 
+In the stimulation-only session, we procede with stimulating the single glomerulus that we chose in the previous step at various latencies. Specifically, the latencies that we have selected are: 10, 30, 60, 120, 180, 240 ms. These latencies were selected for a few reasons. One reason is that these latencies span the entire sniff-cycle, 0 ms being attributed to the mouse's inhilation. In this way, it will be possible to see the fluorescence changes due to the phase of the sniff cycle in response to the same stimulus being presented. Additionally, considering that our aquisition rate is 30 frames/sec, most of these latencies are well divisible by 30, making them easily convertible to frames when analysing the images. 
 
 Stim-only imaging should be conducted in two sessions: one at the glomerul ar level and the next at the MC level. However, it would be best to start with the MC layer as it has been observed that if MCs get stimulated multiple times in the confines of a single day, they diminish significantly in fluorescence. 
 
 The power you should use in stimulating again varies with respect to the ChR2 and GCamp expression in your mouse. For animals with bright expression, apply 2.5V to the AOM which amounts to a $22 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. For animals with dim YFP expression, apply 3.0 to 3.5V to the AOM which amounts to a $35$ to $50 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. 
 
-Here is an example of some plots that can be rendered from this step.
+Here is an example of some plots that can be rendered from this step. The MATLAB code with which these plots were created is linked [HERE](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/Passive_Imaging/SGS_PassiveImg_stimonly_241007.m). 
 
-[INSERT STIM-ONLY PLOTS]
+<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/STIM-ONLY_ROIs.png" alt="Alt text" width="800"/>
+
+This plot displays the normalized, half-second average fluorescence amplitude of selected regions of interest (ROIs) following stimulation. The different columns correspond to the various stimulation latencies, as indicated on the x-axis. In the top row, which shows the glomeruli within the selected field of view, the stimulated glomerulus at different latencies consistently exhibits the highest average fluorescence amplitude. Similarly, in the mitral cell (MC) layer, the black-outlined dMCs show maximum fluorescence amplitude. 
+
+This plot provides a useful validation of correct glomerulus targeting and shows whether its associated dMCs are co-activated. Since we are using 1P stimulation on a specific glomerulus, the stimulation light has a columnar profile, meaning there's a chance of stimulating axons from other glomeruli passing over the targeted one. Such unintended stimulations can also be identified using this plot.
+
+<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/STIM-ONLY_dF.png" alt="Alt text" width="800"/>
+
+This plot shows the fluorescence cross-traces of the activation not only of the selected glomerulus but also of its associated dMCs. The fluorescence amplitudes appear to fluctuate in sync with the mouse's breathing cycles, a relationship further clarified by the subsequent average plot.
+
+<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/STIM-ONLY_stim-time_avg.png" alt="Alt text" width="800"/>
+
+The plot above illustrates the response of the selected glomerulus and its associated dMCs to stimulation at various latencies. As mentioned earlier, despite the constant power of the input stimulation, the responses of both the glomeruli and their corresponding dMCs consistently fluctuate with the mouse’s breathing cycle. Notably, the inhalation phase of the sniff cycle lasts approximately 120 ms, which is reflected in the amplitude of the 180 ms stimulation curve, showing a minimum. Following a full breathing cycle, at 240 ms, the amplitude returns to the maximum observed at the 10 ms stimulation.
+
+This is cool because, unlike odor input, where the volume may vary with the amount of air inhaled, we are directly stimulating the axons of the olfactory sensory neurons (the glomeruli). Yet, even using an artificially generated input stimulus, the response is still modulated by the breathing cycle.
 
 ### ODOR-ONLY Imaging
 
