@@ -77,17 +77,17 @@ The power you should use in stimulating again varies with respect to the ChR2 an
 
 Here is an example of some plots that can be rendered from this step. The MATLAB code with which these plots were created is linked [HERE](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/Passive_Imaging/SGS_PassiveImg_stimonly_241007.m). 
 
-<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/STIM-ONLY_ROIs.png" alt="Alt text" width="800"/>
+<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_ROIs.png" alt="Alt text" width="800"/>
 
 This plot displays the normalized, half-second average fluorescence amplitude of selected regions of interest (ROIs) following stimulation. The different columns correspond to the various stimulation latencies, as indicated on the x-axis. In the top row, which shows the glomeruli within the selected field of view, the stimulated glomerulus at different latencies consistently exhibits the highest average fluorescence amplitude. Similarly, in the mitral cell (MC) layer, the black-outlined dMCs show maximum fluorescence amplitude. 
 
 This plot provides a useful validation of correct glomerulus targeting and shows whether its associated dMCs are co-activated. Since we are using 1P stimulation on a specific glomerulus, the stimulation light has a columnar profile, meaning there's a chance of stimulating axons from other glomeruli passing over the targeted one. Such unintended stimulations can also be identified using this plot.
 
-<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/STIM-ONLY_dF.png" alt="Alt text" width="800"/>
+<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_dF.png" alt="Alt text" width="800"/>
 
 This plot shows the fluorescence cross-traces of the activation not only of the selected glomerulus but also of its associated dMCs. The fluorescence amplitudes appear to fluctuate in sync with the mouse's breathing cycles, a relationship further clarified by the subsequent average plot.
 
-<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/STIM-ONLY_stim-time_avg.png" alt="Alt text" width="800"/>
+<img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_stim-time_avg.png" alt="Alt text" width="800"/>
 
 The plot above illustrates the response of the selected glomerulus and its associated dMCs to stimulation at various latencies. As mentioned earlier, despite the constant power of the input stimulation, the responses of both the glomeruli and their corresponding dMCs consistently fluctuate with the mouse’s breathing cycle. Notably, the inhalation phase of the sniff cycle lasts approximately 120 ms, which is reflected in the amplitude of the 180 ms stimulation curve, showing a minimum. Following a full breathing cycle, at 240 ms, the amplitude returns to the maximum observed at the 10 ms stimulation.
 
