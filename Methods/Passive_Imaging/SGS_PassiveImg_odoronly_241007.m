@@ -17,7 +17,7 @@ title_size = 14;
 
 %% CHOSEN ODOR TO DISPLAY
 
-chosen_odor = {'MethylValerate'};
+chosen_odor = {'Hexanal'};
 % chosen_odor = {'EthylTiglate','EthylButyrate','Hexanal','BenzAldehyde','MethylValerate'};
 
 % Extended Odor Panel
@@ -28,18 +28,18 @@ chosen_odor = {'MethylValerate'};
 
 %% DEFINE FILE PATHS
 
-% FilePaths = {'mouse0773/240703_Glom_100flow/aligned/240703_Glom_OdorMapping_Z0_1X_100flow_S_v73.mat',
-%              'mouse0773/240705_Glom_20flow/aligned/240705_Glom_OdorMapping_Z0_1X_20flow_S_v73.mat'};
-% ROIindex_single = [10];
+FilePaths = {'mouse0773/240703_Glom_100flow/aligned/240703_Glom_OdorMapping_Z0_1X_100flow_S_v73.mat',
+             'mouse0773/240705_Glom_20flow/aligned/240705_Glom_OdorMapping_Z0_1X_20flow_S_v73.mat'};
+ROIindex_single = [10];
 % ROIindex = [2,5,4,7,10]; % BenzAldehyde
 % cross_y_lim = [-0.3, 0.3] % BenzAldehyde
 % avg_y_lim = [-0.3, 0.3] % BenzAldehyde
 % ROIindex = [10,13,16]; % EthylButyrate
 % cross_y_lim = [-0.2, 1] % Ethyl Butyrate
 % avg_y_lim = [-0.2, 1] % Ethyl Butyrate
-% ROIindex = [10,11,12,14,15,17,18]; % Hexanal
-% cross_y_lim = [-0.2, 1] % Hexanal
-% avg_y_lim = [-0.3, 0.2] % Hexanal
+ROIindex = [10,11,12,14,15,17,18]; % Hexanal
+cross_y_lim = [-0.2, 1] % Hexanal
+avg_y_lim = [-0.3, 0.2] % Hexanal
 % ROIindex = [7,9,10,11,12,13,16]; % MethylValerate
 % cross_y_lim = [-0.2, 1] % MethylValerate
 % avg_y_lim = [-0.3, 0.3] % MethylValerate
@@ -319,7 +319,6 @@ end
 % 180 corresponds to the number of time points being considered (n_frames)
 % 29 corresponds to the number of ROIs being considered (n_ROI)
 
-
 %% NO-ODOR CODE
 
 ODOR_RESPONSE_MEAN_norm_empty = cell(2,1);
@@ -330,110 +329,118 @@ end
 
 ODOR_RESPONSE_MEAN_norm_empty_avg = (ODOR_RESPONSE_MEAN_norm_empty{1} + ODOR_RESPONSE_MEAN_norm_empty{2}) / 2;
 
-selected_columns = ODOR_RESPONSE_MEAN_norm_empty_avg(:, ROIindex_single);
+ODOR_RESPONSE_MEAN_norm_empty_avg_rois = ODOR_RESPONSE_MEAN_norm_empty_avg(:, ROIindex_single);
 
-% Average the selected columns across the second dimension (columns)
-ODOR_RESPONSE_MEAN_norm_empty_avg_rois = mean(selected_columns, 2);
+
+%% PLOT CHECK
+% 
+% plot_check_high = ODOR_RESPONSE_MEAN_norm{2,1}{1,chosen_odor_idx}(:,ROIindex_single);
+% plot_check_low = ODOR_RESPONSE_MEAN_norm{1,1}{1,chosen_odor_idx}(:,ROIindex_single);
+% 
+% % Create figure and plot
+% figure;
+% plot(tt, plot_check_high, 'LineWidth', 1.5);
+% hold on;
+% plot(tt, plot_check_low, 'LineWidth', 1.5);
+% hold on;
+% plot(tt, ODOR_RESPONSE_MEAN_norm_empty_avg_rois, 'LineWidth', 1.5);
+% 
+% % Plot formatting
+% xlim([-0.5, 1.5]);
+% ylim(cross_y_lim); % Make sure cross_y_lim is defined beforehand
+% line([0 0], ylim, 'Color', [0.8, 0.8, 0.8], 'LineStyle', '-', 'LineWidth', 1, 'HandleVisibility', 'off');
+% line(xlim, [0, 0], 'Color', [0, 0, 0, 0.2], 'LineStyle', '-', 'HandleVisibility', 'off');
+% 
+% % Add labels
+% xlabel('Time [s]', 'FontSize', 12);
+% ylabel('\Delta F/F_0', 'FontSize', 12);
+% 
+% % Optional: add a title
+% title('Odor Response', 'FontSize', 14);
+
 
 %% LOOP THROUGH CHOSEN ODORS FOR PLOTS
 
-% Loop through the chosen odor indices
 for k = 1:numel(chosen_odor_idx)
     idxChosenOdor = chosen_odor_idx(k);
     chosen_odor_conc = concentrations(:, idxChosenOdor);
 
-%% TiME CROSS-SECTION PLOT
-
-% Define a colormap to ensure distinct colors for each ROI
-colors = lines(numel(ROIindex));
-
-% Sort the concentrations and get the sorting indices in descending order
-[sorted_conc, sort_idx] = sort(chosen_odor_conc, 'descend');
-
-% Create a new figure for each chosen odor index
-figure_handle = figure('Name', ['Chosen Odor ', num2str(idxChosenOdor)]);
-% Set the figure dimensions: [left, bottom, width, height]
-set(figure_handle, 'Position', [10, 50, 600, 400]);
-
-% Initialize flags to track if specific legend labels have been added
-added_single_high = false;
-added_single_low = false;
-added_neighbor_high = false;
-added_neighbor_low = false;
-
-% Initialize empty arrays for plot handles and labels
-handles = [];
-labels = [];
-
-for sorted_idx = 1:length(sort_idx)
-    % Get the index from the sorted indices
-    cell_array_index = sort_idx(sorted_idx);
-    chosen_odor_conc_curr = sorted_conc(sorted_idx);
-    OdorResponse_mean = ODOR_RESPONSE_MEAN_norm{cell_array_index, 1}{1, idxChosenOdor};
-    
-    % Hold on to plot on the same figure
+    %% Time Cross-Section Plot
+    [sorted_conc, sort_idx] = sort(chosen_odor_conc, 'descend');
+    figure_handle = figure('Name', ['Chosen Odor ', num2str(idxChosenOdor)], 'Position', [10, 50, 600, 400]);
     hold on;
 
-    % Loop through each ROI index and plot the corresponding columns
-    for j = 1:numel(ROIindex)
-        roi_index = ROIindex(j);
-        currentColumn = OdorResponse_mean(:, roi_index);
-        
-        % Check if the ROI is in ROIindex_single
-        if ismember(roi_index, ROIindex_single)
-            color = 'r'; % Red for matching ROIs
-            if sorted_idx == 2  % Low concentration
+    % Initialize flags for legend labels
+    added_single_high = false;
+    added_single_low = false;
+    added_neighbor_high = false;
+    added_neighbor_low = false;
+
+    handles = [];
+    labels = [];
+
+    for sorted_idx = 1:length(sort_idx)
+        cell_array_index = sort_idx(sorted_idx);
+        OdorResponse_mean = ODOR_RESPONSE_MEAN_norm{cell_array_index, 1}{1, idxChosenOdor};
+
+        for j = 1:numel(ROIindex)
+            roi_index = ROIindex(j);
+            currentColumn = OdorResponse_mean(:, roi_index);
+
+            % Determine legend label and color
+            is_single = ismember(roi_index, ROIindex_single);
+            is_low_conc = sorted_idx == 2;
+
+            if is_single
                 if strcmp(layer_acr, 'MC')
-                    legend_label = 'daughter MC - low conc.';
+                    if is_low_conc
+                        legend_label = 'daughter MCs - low conc.';
+                    else
+                        legend_label = 'daughter MCs - high conc.';
+                    end
                 else
-                    legend_label = 'single Glom - low conc.';
+                    if is_low_conc
+                        legend_label = 'single Glom - low conc.';
+                    else
+                        legend_label = 'single Glom - high conc.';
+                    end
                 end
-                if ~added_single_low
-                    h_single_low = plot(tt, currentColumn, 'LineWidth', 1.5, 'DisplayName', legend_label, 'Color', [0, 0, 1, 0.4], 'LineStyle', '-');
+                color = [0, 0, 1, 0.4 + 0.6 * ~is_low_conc];
+                linestyle = '-';
+
+                % Plot single ROIs
+                if is_low_conc && ~added_single_low
+                    h_single_low = plot(tt, currentColumn, 'LineWidth', 1.5, 'DisplayName', legend_label, 'Color', color, 'LineStyle', linestyle);
                     added_single_low = true;
-                    handles(end+1) = h_single_low; %#ok<*AGROW>
+                    handles(end+1) = h_single_low;
                     labels{end+1} = legend_label;
-                else
-                    plot(tt, currentColumn, 'LineWidth', 1.5, 'Color', [0, 0, 1, 0.4], 'LineStyle', '-', 'HandleVisibility', 'off');
-                end
-            else  % High concentration
-                if strcmp(layer_acr, 'MC')
-                    legend_label = 'daughter MC - high conc.';
-                else
-                    legend_label = 'single Glom - high conc.';
-                end
-                if ~added_single_high
-                    h_single_high = plot(tt, currentColumn, 'LineWidth', 1.5, 'DisplayName', legend_label, 'Color',  [0, 0, 1, 1]);
+                elseif ~is_low_conc && ~added_single_high
+                    h_single_high = plot(tt, currentColumn, 'LineWidth', 1.5, 'DisplayName', legend_label, 'Color', color, 'LineStyle', linestyle);
                     added_single_high = true;
                     handles(end+1) = h_single_high;
                     labels{end+1} = legend_label;
                 else
-                    plot(tt, currentColumn, 'LineWidth', 1.5, 'Color',  [0, 0, 1, 1], 'HandleVisibility', 'off');
+                    plot(tt, currentColumn, 'LineWidth', 1.5, 'Color', color, 'LineStyle', linestyle, 'HandleVisibility', 'off');
                 end
-            end
-        else
-            color = [0.5, 0.5, 0.5]; % Grey for non-matching ROIs
-            if sorted_idx == 2  % Low concentration
+            else
                 if strcmp(layer_acr, 'Glom')
-                    legend_label = 'neighbor Gloms - low conc.';
+                    if is_low_conc
+                        legend_label = 'neighbor Gloms - low conc.';
+                    else
+                        legend_label = 'neighbor Gloms - high conc.';
+                    end
                 else
                     legend_label = [layer_acr, ' ', num2str(roi_index)];
                 end
-                if ~added_neighbor_low
-                    h_neighbor_low = plot(tt, currentColumn, 'LineWidth', 1.5, 'DisplayName', legend_label, 'Color', [0.5, 0.5, 0.5, 0.3]);
+                color = [0.5, 0.5, 0.5, 0.3 + 0.7 * ~is_low_conc];
+
+                % Plot neighboring ROIs
+                if is_low_conc && ~added_neighbor_low
+                    h_neighbor_low = plot(tt, currentColumn, 'LineWidth', 1.5, 'DisplayName', legend_label, 'Color', color);
                     added_neighbor_low = true;
                     handles(end+1) = h_neighbor_low;
                     labels{end+1} = legend_label;
-                else
-                    plot(tt, currentColumn, 'LineWidth', 1.5, 'Color', [0.5, 0.5, 0.5, 0.3], 'HandleVisibility', 'off');
-                end
-            else  % High concentration
-                if strcmp(layer_acr, 'Glom')
-                    legend_label = 'neighbor Gloms - high conc.';
-                else
-                    legend_label = [layer_acr, ' ', num2str(roi_index)];
-                end
-                if ~added_neighbor_high
+                elseif ~is_low_conc && ~added_neighbor_high
                     h_neighbor_high = plot(tt, currentColumn, 'LineWidth', 1.5, 'DisplayName', legend_label, 'Color', color);
                     added_neighbor_high = true;
                     handles(end+1) = h_neighbor_high;
@@ -444,43 +451,32 @@ for sorted_idx = 1:length(sort_idx)
             end
         end
     end
-end
 
-% Plot a single 'no-odor' line and make sure it is black
-h_no_odor = plot(tt, ODOR_RESPONSE_MEAN_norm_empty_avg_rois, 'LineWidth', 1.5, 'Color', 'k', 'DisplayName', 'no-odor');
-handles(end+1) = h_no_odor;
-labels{end+1} = 'no-odor';
+    % Plot no-odor line
+    h_no_odor = plot(tt, ODOR_RESPONSE_MEAN_norm_empty_avg_rois, 'LineWidth', 1.5, 'Color', 'k', 'DisplayName', 'no-odor');
+    handles(end+1) = h_no_odor;
+    labels{end+1} = 'no-odor';
 
-% Set plot limits and labels
-xlim([-0.5, 1.5]);
-ylim(cross_y_lim);
+    % Plot formatting
+    xlim([-0.5, 1.5]);
+    ylim(cross_y_lim);
+    line([0 0], ylim, 'Color', [0.8, 0.8, 0.8], 'LineStyle', '-', 'LineWidth', 1, 'HandleVisibility', 'off');
+    line(xlim, [0, 0], 'Color', [0, 0, 0, 0.2], 'LineStyle', '-', 'HandleVisibility', 'off');
 
-% Dashed vertical line at x = 0
-line([0 0], ylim, 'Color', [0.8, 0.8, 0.8], 'LineStyle', '-', 'LineWidth', 1, 'HandleVisibility', 'off');
-% Horizontal line at y = 0
-line(xlim, [0, 0], 'Color', [0, 0, 0, 0.2], 'LineStyle', '-', 'HandleVisibility', 'off');
+    ylabel('Normalized \textbf{\textsf{$\Delta F/F_0$}}','Interpreter','latex','FontName','Arial','FontSize', axis_size);
+    if strcmp(layer_acr, 'MC')
+        xlabel('Time With Respect to Inhalation-Onset [s]', 'FontSize', axis_size);
+        sgtitle('Daughter Mitral Cells', 'FontSize', axis_size);
+    elseif strcmp(layer_acr, 'Glom')
+        sgtitle('Selected Glomerulus', 'FontSize', axis_size);
+    end
 
-% Add labels, title, etc. as needed
-ylabel('Normalized \textbf{\textsf{$\Delta F/F_0$}}','Interpreter','latex','FontName','Arial','FontSize', axis_size);
+    % Add legend
+    legend(handles, labels, 'Location', 'northeast', 'Orientation', 'vertical', 'EdgeColor', 'none');
 
-% Conditionally add x-axis label based on layer_acr
-if strcmp(layer_acr, 'MC')
-    xlabel('Time With Respect to Inhilation-Onset [s]','FontSize', axis_size);
-end
-
-if strcmp(layer_acr, 'MC')
-    sgtitle('Daughter Mitral Cells', 'FontSize', axis_size);
-elseif strcmp(layer_acr, 'Glom')
-    sgtitle('Selected Glomerulus', 'FontSize', axis_size);
-end
-
-% Add legend in the desired order
-legend(handles, labels, 'Location', 'northeast', 'Orientation', 'vertical', 'EdgeColor', 'none');
-
-% Save the figure
-print(gcf, fullfile(plot_dir, sprintf('%s_dF_%s_plot.png', layer_acr, chosen_odor{k})), '-dpng', '-r300');
-
-hold off;
+    % Save figure
+    print(gcf, fullfile(plot_dir, sprintf('%s_dF_%s_plot.png', layer_acr, chosen_odor{k})), '-dpng', '-r300');
+    hold off;
 
 
 %% FLUORESCENCE AMPLITUDE PLOTS FOR EACH ROI
@@ -1027,7 +1023,7 @@ text(size(combined_img, 2), size(combined_img, 1) + 100, sprintf('number of tria
     'FontSize', 10, 'Color', 'k', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom');
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('%s_combined_dF_plot.png', chosen_odor{k})), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('odor_ODOR-ONLY_dF_%s.png', chosen_odor{k})), '-dpng', '-r300');
 
 
 %% COMBINED PLOTS - ROI Masks
@@ -1075,7 +1071,7 @@ text(size(combined_img, 2), size(combined_img, 1) + 150, sprintf('post-inhilatio
     'FontSize', 10, 'Color', 'k', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom');
 
 % Save the figure in high resolution (e.g., 300 DPI)
-print(gcf, fullfile(plot_dir, sprintf('%s_combined_mask_plot.png', chosen_odor{k})), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('odor_ODOR-ONLY_ROIs_%s.png', chosen_odor{k})), '-dpng', '-r300');
 
 
 %% COMBINED STIM-TIME AVERAGE PLOT
@@ -1122,7 +1118,7 @@ text(size(combined_img, 2), baseY + 100, 'normalized with respect to OB layer', 
 
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('%s_ODOR_avg_plot.png', chosen_odor{k})), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('odor_ODOR-ONLY_stim-time_avg_%s.png', chosen_odor{k})), '-dpng', '-r300');
 
 %% COLORSCALE FUNCTION
 

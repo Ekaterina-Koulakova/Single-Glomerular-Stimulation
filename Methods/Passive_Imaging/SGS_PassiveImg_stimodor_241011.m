@@ -33,21 +33,21 @@ title_size = 14;
 % stim_odor_y_lim = [-1.2, 1]
 % stim_time_avg_y_lim = [-1, 1]
 
-FilePaths = {'mouse0781/240806_Glom_StimOdorMapping/aligned/240806_0781_Glom_StimOdorMapping_Z0_1X_S_v73.mat'};
-ROIindex = [15]; 
-
-stim_y_lim = [-1, 1] % y-limits of produced plots
-odor_y_lim = [-0.5, 1]
-stim_odor_y_lim = [-0.5, 1]
-stim_time_avg_y_lim = [-0.2, 1]
-
-% FilePaths = {'mouse0781/240806_MC_StimOdorMapping/aligned/240806_0781_MC_StimOdorMapping_Z105_3X_S_v73.mat'};
-% ROIindex = [7,9,18,25];
+% FilePaths = {'mouse0781/240806_Glom_StimOdorMapping/aligned/240806_0781_Glom_StimOdorMapping_Z0_1X_S_v73.mat'};
+% ROIindex = [15]; 
 % 
 % stim_y_lim = [-1, 1] % y-limits of produced plots
-% odor_y_lim = [-1, 1]
-% stim_odor_y_lim = [-1, 1]
-% stim_time_avg_y_lim = [-0.6, 0.5]
+% odor_y_lim = [-0.5, 1]
+% stim_odor_y_lim = [-0.5, 1]
+% stim_time_avg_y_lim = [-0.2, 1]
+
+FilePaths = {'mouse0781/240806_MC_StimOdorMapping/aligned/240806_0781_MC_StimOdorMapping_Z105_3X_S_v73.mat'};
+ROIindex = [7,9,18,25];
+
+stim_y_lim = [-1, 1] % y-limits of produced plots
+odor_y_lim = [-1, 1]
+stim_odor_y_lim = [-1, 1]
+stim_time_avg_y_lim = [-0.6, 0.5]
 
 % Extract the parent directory for mouse0773
 commonDirectory = fileparts(fileparts(fileparts(FilePaths{1})));
@@ -1334,7 +1334,7 @@ text(size(combined_img, 2), baseY + 100, 'normalized with respect to OB layer & 
 
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('STIM-ONLY_avg_plot.png')), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stimodor_STIM-ONLY_dF.png')), '-dpng', '-r300');
 
 
 %% COMBINED PLOTS - ODOR-ONLY - dF traces
@@ -1378,7 +1378,7 @@ text(size(combined_img, 2), baseY + 100, 'normalized with respect to OB layer & 
 
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('ODOR-ONLY_%s_plot.png', chosen_odor)), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stimodor_ODOR-ONLY_dF_%s.png', chosen_odor)), '-dpng', '-r300');
 
 
 %% COMBINED - ODOR+STIM FLUORESCENCE TRACE PLOTS
@@ -1429,7 +1429,7 @@ text(-80, height1 + height2 / 2, 'avg. Daughter MCs', 'FontSize', 10, 'Rotation'
 
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('STIM-ODOR_dF_combined_plot.png')), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stimodor_STIM-ODOR_dF.png')), '-dpng', '-r300');
 
 
 %% COMBINED PLOTS - STIM-ONLY STIM-TIME AVG.
@@ -1473,7 +1473,7 @@ text(size(combined_img, 2), baseY + 100, 'normalized with respect to OB layer & 
     'FontSize', 10, 'Color', 'k', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom');
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('STIM-ONLY_stim-time_avg_plot.png')), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stimodor_STIM-ONLY_stim-time_avg_%s.png')), '-dpng', '-r300');
 
 %% COMBINED PLOTS - STIM-ONLY & ODOR-ONLY STIM-TIME AVG.
 
@@ -1515,7 +1515,7 @@ text(size(combined_img, 2), baseY + 100, 'normalized with respect to OB layer & 
     'FontSize', 10, 'Color', 'k', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom');
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('ODOR-ONLY_STIM-ONLY_stim-time_avg_plot.png', chosen_odor)), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stimodor_ODOR-ONLY_STIM-ONLY_stim-time_avg_%s.png', chosen_odor)), '-dpng', '-r300');
 
 
 %% COMBINED PLOTS - ODOR-STIM STIM-TIME AVG.
@@ -1559,4 +1559,4 @@ text(size(combined_img, 2), baseY + 100, 'normalized with respect to OB layer & 
     'FontSize', 10, 'Color', 'k', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom');
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('STIM-ODOR_stim-time_avg_%s_plot.png', chosen_odor)), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stimodor_STIM-ODOR_stim-time_avg_%s.png', chosen_odor)), '-dpng', '-r300');

@@ -17,17 +17,17 @@ title_size = 14;
 
 %% DEFINE FILE PATHS
 
-% FilePaths = {'mouse0773/240702_Glom_Stim/aligned/240702_0773_StimMapping_Glom_Z0_1X_S_v73.mat'};
-% ROIindex = [16];
-
+FilePaths = {'mouse0773/240702_Glom_Stim/aligned/240702_0773_StimMapping_Glom_Z0_1X_S_v73.mat'};
+ROIindex = [16];
+% 
 % FilePaths = {'mouse0773/240702_MC_Stim/aligned/240702_0773_StimMapping_MC_Z196_3X_S_v73.mat'};
 % ROIindex = [3,7,10]; % MC exc and inh highly dependent on latency
 
 % FilePaths = {'mouse0781/240528_Glom_Stim/aligned/240528_Glom_StimMapping_S_v73.mat'};
 % ROIindex = [12];
 
-FilePaths = {'mouse0781/240528_MC_Stim/aligned/240528_MC_StimMapping_S_v73.mat'};
-ROIindex = [5,10,22,29];
+% FilePaths = {'mouse0781/240528_MC_Stim/aligned/240528_MC_StimMapping_S_v73.mat'};
+% ROIindex = [5,10,22,29];
 
 % Extract the parent directory for mouse0773
 commonDirectory = fileparts(fileparts(fileparts(FilePaths{1})));
@@ -102,7 +102,7 @@ for i = 1:n_conditions
     end
 end
 
-% ORDER DATA BY LATENCIES
+%% ORDER DATA BY LATENCIES
 % Preallocate arrays for sorted latencies
 trial_lat_ROI_1 = {};
 trial_lat_ROI_2 = {};
@@ -110,17 +110,30 @@ trial_lat_ROI_2 = {};
 % Loop through each trial and store indices and latencies for each ROI
 for i = 1:length(trial_stim_type)
     if contains(trial_stim_type{i}, 'ROI_1.tif')
+        % Store trial index and corresponding latency for ROI 1
         trial_lat_ROI_1{1, end+1} = i;            
         trial_lat_ROI_1{2, end} = trial_latencies{i};  
     elseif contains(trial_stim_type{i}, 'ROI_2.tif')
+        % Store trial index and corresponding latency for ROI 2
         trial_lat_ROI_2{1, end+1} = i;            
         trial_lat_ROI_2{2, end} = trial_latencies{i};  
     end
 end
 
-% Sort latencies for each ROI
-sort_idx_ROI_1 = sort_indices(trial_lat_ROI_1);
-sort_idx_ROI_2 = sort_indices(trial_lat_ROI_2);
+% trial_lat_ROI_1 = 10, 120, 180, 240, 30, 60
+% trial_lat_ROI_2 = 10, 120, 180, 240, 30, 60
+% sort_idx_ROI_# should be 1, 4, 5, 6, 2, 3 
+
+% Now, convert the second row of trial_lat_ROI_1 to numeric values
+numericLatencies_ROI_1 = str2double(trial_lat_ROI_1(2, :));
+numericLatencies_ROI_2 = str2double(trial_lat_ROI_2(2, :));
+
+% sort_idx_ROI_1 = [1, 4, 5, 6, 2, 3 ];
+% sort_idx_ROI_2 = [1, 4, 5, 6, 2, 3 ];
+
+% Sort numeric values and get sorting indices
+[~, sort_idx_ROI_1] = sort(numericLatencies_ROI_1);
+[~, sort_idx_ROI_2] = sort(numericLatencies_ROI_2);
 
 % Find unique latencies and stimulus types
 latencies = unique(trial_latencies(~cellfun('isempty', trial_latencies)));
@@ -151,6 +164,14 @@ STIM_RESPONSE_UNC = [StimResponse_UNC_ROI_1; StimResponse_UNC_ROI_2];
 % Store sorted latencies
 STIM_latencies = [trial_lat_ROI_1(2,:); trial_lat_ROI_2(2,:)];
 latencies = STIM_latencies(1, :);
+% Convert the cell array of strings to numeric values
+numericLatencies = str2double(latencies);
+% Sort the numeric values
+sortedLatencies = sort(numericLatencies);
+% Convert back to cell array of strings
+latencies = cellfun(@num2str, num2cell(sortedLatencies), 'UniformOutput', false);
+
+
 
 %   STIM_RESPONSE_MEAN is a 2x6 cell array.
 % 	2 corresponds to blank and stim trials (n_stimtype)
@@ -224,7 +245,7 @@ for i = 1:length(ROIindex);
     % Loop through each latency and plot the current ROI column of each matrix in OdorResponse_mean
     for latency_idx = 1:n_latencies
         currentMean = STIM_RESPONSE_MEAN_norm{1, latency_idx}(:, ROI_idx);           
-        legend_label = sprintf('%s ms', STIM_latencies{n_stimtype, latency_idx});
+        legend_label = sprintf('%s ms', latencies{latency_idx});
         
         % Set the alpha value based on the latency index
         alpha_value = 1 - (latency_idx - 1) * 0.15;
@@ -295,7 +316,7 @@ stim_latency_frame_aprx = cellfun(@round, stim_latency_frame, 'UniformOutput', f
 
 POST_STIM_MEAN = cell(size(STIM_RESPONSE_MEAN_norm));
 
-stim_time = [10, 30, 60, 120, 180, 240];
+stim_time = str2double(latencies);
 
 % stim_time to frame_time
 stim_frame = (stim_time * 30 / 1000);
@@ -527,7 +548,7 @@ for k = 1:size(sum_Masks_F, 2)
     end
 
     % Ensure latency is a numeric value
-    latency = STIM_latencies{1, k};
+    latency = latencies{k};
     if iscell(latency)
         latency = cell2mat(latency);
     end
@@ -761,7 +782,7 @@ text(size(combined_img, 2), baseY + 100, 'normalized with respect to OB layer', 
 
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('STIM_avg_plot.png')), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stim_STIM-ONLY_stim-time_avg.png')), '-dpng', '-r300');
 
 %% COMBINED PLOTS - Fluorescence Cross-Traces
 
@@ -827,7 +848,7 @@ text(size(combined_img, 2), baseY + 200, 'normalized with respect to OB layer', 
     'FontSize', 10, 'Color', 'k', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom');
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('dF_plot.png')), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stim_STIM-ONLY_dF.png')), '-dpng', '-r300');
 
 
 %% COMBINED PLOTS - ROI Masks
@@ -878,7 +899,7 @@ text(size(combined_img, 2), baseY + 100, 'normalized with respect to OB layer', 
     'FontSize', 10, 'Color', 'k', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom');
 
 % Save the figure
-print(gcf, fullfile(plot_dir, sprintf('combined_mask_plot.png')), '-dpng', '-r300');
+print(gcf, fullfile(plot_dir, sprintf('stim_STIM-ONLY_ROIs.png')), '-dpng', '-r300');
 
 
 %% COLORSCALE FUNCTION
