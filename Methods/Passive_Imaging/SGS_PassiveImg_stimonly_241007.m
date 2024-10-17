@@ -17,11 +17,11 @@ title_size = 14;
 
 %% DEFINE FILE PATHS
 
-FilePaths = {'mouse0773/240702_Glom_Stim/aligned/240702_0773_StimMapping_Glom_Z0_1X_S_v73.mat'};
-ROIindex = [16];
+% FilePaths = {'mouse0773/240702_Glom_Stim/aligned/240702_0773_StimMapping_Glom_Z0_1X_S_v73.mat'};
+% ROIindex = [16];
 % 
-% FilePaths = {'mouse0773/240702_MC_Stim/aligned/240702_0773_StimMapping_MC_Z196_3X_S_v73.mat'};
-% ROIindex = [3,7,10]; % MC exc and inh highly dependent on latency
+FilePaths = {'mouse0773/240702_MC_Stim/aligned/240702_0773_StimMapping_MC_Z196_3X_S_v73.mat'};
+ROIindex = [3,7,10]; % MC exc and inh highly dependent on latency
 
 % FilePaths = {'mouse0781/240528_Glom_Stim/aligned/240528_Glom_StimMapping_S_v73.mat'};
 % ROIindex = [12];
@@ -293,6 +293,83 @@ end
 
 % Save the figure
 print(gcf, fullfile(plot_dir, sprintf('%s_dF_plot.png', layer_acr)), '-dpng', '-r300');
+
+%% dF/F PLOT with AVERAGED ROIs 
+
+for idx_latencies = 1:n_latencies
+    selected_columns = STIM_RESPONSE_MEAN_norm{1,idx_latencies}(:, ROIindex);
+    STIM_ONLY_roi_avg{1,idx_latencies} = mean(selected_columns, 2); 
+end
+
+
+%% dF/F PLOT with AVERAGED ROIs PLOT
+
+% Create a new figure
+figure_handle = figure('Name', 'ROI Subplots');
+
+if strcmp(layer_acr, 'MC')
+% Set the figure dimensions: [left, bottom, width, height]
+    set(figure_handle, 'Position', [10, 100, 600, 300]);
+elseif strcmp(layer_acr, 'Glom')
+    set(figure_handle, 'Position', [10, 100, 675, 300]);
+end
+
+    
+% Create a new subplot for each ROI
+nexttile;
+
+hold on;
+
+% Loop through each latency and plot the current ROI column of each matrix in OdorResponse_mean
+for latency_idx = 1:n_latencies
+    currentMean = STIM_ONLY_roi_avg{1, latency_idx}         
+    legend_label = sprintf('%s ms', latencies{latency_idx});
+
+    % Set the alpha value based on the latency index
+    alpha_value = 1 - (latency_idx - 1) * 0.15;
+
+    % Create a plot with transparency
+    h = line(tt, currentMean, 'LineWidth', 1.5, 'DisplayName', legend_label, 'Color', 'r');
+    h.Color(4) = alpha_value;  % Set the alpha value
+
+    hold on;
+
+    xlim([-0.5, 1]);
+    ylim([-0.25, 1.2]); % Adjust as needed
+
+    % Dashed vertical line at x = 0
+    line([0 0], ylim, 'Color', [0.8, 0.8, 0.8], 'LineStyle', '-', 'LineWidth', 1, 'HandleVisibility', 'off');
+    line(xlim, [0, 0], 'Color', [0, 0, 0, 0.1], 'LineStyle', '-', 'HandleVisibility', 'off');
+
+    % Add labels, title, etc. as needed
+    if strcmp(layer_acr, 'MC')
+        xlabel('Time Post Inhilation Onset [s]', 'FontSize', axis_size);
+    end
+    
+    ylabel('Normalized \textbf{\textsf{$\Delta F/F_0$}}','Interpreter','latex','FontName','Arial','FontSize', axis_size);
+    
+end
+
+% Plot the no_stim data for the current ROI
+no_stim_ROI = no_stim(:, ROI_idx); 
+
+% Plot the no_stim data as a dashed line
+plot(tt, no_stim_ROI, 'LineWidth', 1.5, 'DisplayName', 'no stim', 'Color', 'k', 'LineStyle', '-');
+
+% Add legend for the first subplot only
+if strcmp(layer_acr, 'Glom')
+    legend('Location', 'southeastoutside', 'Orientation', 'vertical', 'EdgeColor', 'none');
+end
+
+% Set the main title for the entire figure
+if strcmp(layer_acr, 'MC')
+    sgtitle('Averaged Daughter Mitral Cells', 'FontSize', axis_size);
+elseif strcmp(layer_acr, 'Glom')
+    sgtitle('Selected Glomerulus', 'FontSize', axis_size);
+end
+
+% Save the figure
+print(gcf, fullfile(plot_dir, sprintf('%s_dF_roi_avg.png', layer_acr)), '-dpng', '-r300');
 
 %% FLUORESCENCE AMPLITUDE PLOTS FOR EACH ROI [0.5 sec average post-stim presentation]
 
@@ -787,8 +864,8 @@ print(gcf, fullfile(plot_dir, sprintf('stim_STIM-ONLY_stim-time_avg.png')), '-dp
 %% COMBINED PLOTS - Fluorescence Cross-Traces
 
 % Define the filenames for the two PNG files
-file1 = sprintf('%s_dF_plot.png', 'Glom');
-file2 = sprintf('%s_dF_plot.png', 'MC');
+file1 = sprintf('%s_dF_roi_avg.png', 'Glom');
+file2 = sprintf('%s_dF_roi_avg.png', 'MC');
 
 % Create full paths to the PNG files
 path1 = fullfile(plot_dir, file1);
