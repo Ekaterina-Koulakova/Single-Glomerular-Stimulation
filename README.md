@@ -13,7 +13,7 @@ For a deep dive explanation of the experimental flow developed for this work, pl
 * analysis of behavioral assays using Python [LINK](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/tree/main/Methods/Behavioral_Training)
 * analysis of optical images produced using MATLAB [LINK](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/tree/main/Methods/Passive_Imaging)
 
-#### Mentors and Collaborators
+#### Collaborators
 
 * **[Mursel Karadas](https://scholar.google.dk/citations?user=9hQ-FLgAAAAJ&hl=en)** Postdoctoral Scientist at the NYU Neuroscience Institute
 * **[Sebastian Ceballo](https://scholar.google.es/citations?user=A5-1OGYAAAAJ&hl=th)** Postdoctoral Scientist at the NYU Neuroscience Institute
