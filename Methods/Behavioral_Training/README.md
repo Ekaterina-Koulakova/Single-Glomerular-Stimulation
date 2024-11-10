@@ -15,9 +15,11 @@ At the end of this Behavioral Training procedure, the mice should be trained in 
 
 The mice were trained to detect optogenetic stimulation of a selected single glomerulus using a Go/No-Go paradigm. Mice were conditioned to lick in response to a presented stimulus and to withhold licking during 'blank' trials where no stimulus was presented. The plot below illustrates the success rates of seven individual mice as they learned the single glomerulus detection task over the course of 6 to 7 days.
 
-<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_Training_combinedmice.PNG" alt="Alt text" width="800"/>
+<p align="center">
+  <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_Training_combinedmice.PNG" alt="Alt text" width="800"/>
+</p>
 
-The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipy). 
+The code to this plot is linked [HERE](https://raw.githubusercontent.com/ekaterinakoulak/Single-Glomerular-Stimulation/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipy).
 
 On the x-axis, the sessions are numbered with one session being conducted per day. The length of each session varied in length depending on the motivation of the mouse and the stubborness of the trainer on that day.  Typically, mice began with sessions of 100 to 200 individual trials, gradually working up to sessions with as many as 500 trials. If extending session lengths becomes difficult after a week, the issue may stem from providing too much water per trial.
 
@@ -51,7 +53,9 @@ Training is conducted with a stimulation consisting of 10 pulses: each pulse hav
 
 Below is a plot showing the progression of a single mouse's training using Pavlovian conditioning. Initially, the likelihood that a trial will be pavlovian—meaning the mouse receives a reward regardless of its behavior—is quite high. As the training progresses and the mouse learns the contingency between the stimulus and the reward we gradually reduce the frequency of pavlovian trials as seen below.
 
-<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_Training_mouse0691.png" alt="Alt text" width="800"/>
+<p align="center">
+  <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_Training_mouse0691.png" alt="Alt text" width="800"/>
+</p>
 
 The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_singlemouse.py). 
 
@@ -92,7 +96,9 @@ After trying various methods of acquiring this psychometric curve, we have concl
 
 Below is an example of a Physichometric Curve taken using the Block Method conducted with only a single mouse. For this specific mouse, only 7 sessions were conducted. This is one of the reasons why the lower power levels have a greater uncertainty. At this point in the project, we only wanted a rough estimate of what the power should be for 80% detection and so this level of data was sufficient.
 
-<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Block_combinedmice.png" alt="Alt text" width="800"/>
+<p align="center">
+  <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Block_combinedmice.png" alt="Alt text" width="800"/>
+</p>
 
 The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Block_combinedmice.py). 
 
@@ -102,7 +108,9 @@ The most important take-away from this method of cunducting the psychometric cur
 
 We also tried rendering the psychometric curve using non-rewarded probe trials. The probe trials were non-rewarded and occupied 11% of the Go trials. We further employed a partial-reward system, where only 80% of the non-probe (maximum stim power) Go trials were rewarded. This was put into place to make sure that the mice didn't learn to lick for only the maximum-power Go trials. Below is a summary figure of the Probe Method for the two mice that we applied the above paradigm with. The shaded region represents a 95% confidence interval which takes into account the number of trials that were aquired for each probe.
 
-<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_combinedmice.png" alt="Alt text" width="800"/>
+<p align="center">
+  <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_combinedmice.png" alt="Alt text" width="800"/>
+</p>
 
 The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_combinedmice.py). 
 
@@ -112,7 +120,9 @@ The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single
 
 As mentioned previously, only 11% of the stim trials were probes. This small percentage of probe trials made the acquisition of data very slow. Considering mice tend to do 300 trials per session, if 50% of the trials in that session are stimulation Go trials, we would be acquiring approximately 16 probe data points per session. Below is an example probe-acquisition accross 4 sessions for a single mouse. 
 
-<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_mouse0070.png" alt="Alt text" width="800"/>
+<p align="center">
+  <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_mouse0070.png" alt="Alt text" width="800"/>
+</p>
 
 This plot is mainly used to monitor the data collection process from day to day to see wich power-levels are needed to be probed further for the next session. You can see that for $~60 \ \text{mW}/\text{mm}^2$, the histogram is missing a bar and this is due to 89% (100-11%) of all of the stim trials being conducted at this maximum power density. The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_singlemouse.py). 
 
@@ -122,7 +132,9 @@ Despite imposing a partial-reward paradigm, the mice still managed to learn to l
 
 Below is an example plot for the mouse that was analyzed above where the success-rate of the various probes are shown broken into the four seperate sessions run during this data acquisition. 
 
-<img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_mouse0070_sessions.png" alt="Alt text" width="800"/>
+<p align="center">
+  <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_mouse0070_sessions.png" alt="Alt text" width="800"/>
+</p>
 
 The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_singlemouse_sessions.py). 
 
@@ -136,7 +148,7 @@ Why consider blank trials? A mouse is biased towards licking for water rather th
 
 #### Randomized Trial Method (Failed)
 
-A plot for this is currently unavailable.
+A plot for this is not unavailable... but it was messy. 
 
 ---
 ### Single-Pulse Stim Detection at Varying Latencies
