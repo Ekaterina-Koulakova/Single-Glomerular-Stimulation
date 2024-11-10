@@ -6,8 +6,17 @@
 
 ## Imaging Session with Behavior
 
-Here, we attempt to combine all elements of the experiment up until this point. 
+I am still developing this paradigm.
 
+Up until this point, I have developed a paradigm allowing me to measure the mouse's detection of single-glomerulus activation and simultaneously record the activity of its associated dMCs, demonstrating that mice can detect single-glomerular stimulation at various latencies within the sniff cycle.
+
+My next goal is to assess whether this detection rate remains consistent when a background odorant is introduced. I hypothesize that, after the mouse learns to detect the single-glomerulus stimulus, its detection rate will remain high despite the presence of a masking odorant. If confirmed, I expect the neural activity of the associated dMCs to show modifications from passive odor conditions, potentially challenging he *primacy theory* of olfactory encoding ([Wilson et al., 2017](https://www.nature.com/articles/s41467-017-01432-4)) ([Giaffar et al., 2024](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012379#:~:text=According%20to%20the%20primacy%20model,beginning%20of%20a%20sniff%20cycle.)). Overall, this project aims to clarify whether detection of the single-glomerular stimulation directly corresponds with its associated MC activation or if additional pathways in olfactory bulb are recruited in the case of feed-back or learning.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/main/Methods/Imaging_Session_with_Behavior/apologetic_mouse.png" width="400"/>
+</p>
+
+<!-- 
 INSERT EXPLANATION OF HYPOTHETICAL PLOTS
 
 INSERT HYPOTHETICAL PLOTS
@@ -55,3 +64,5 @@ After this block, there will be a block of 20 trials of stim-only which will act
 This block will be composed of (20) trials. This will give us 10 trials for which 'odor-only low concentration' images can be taken.
 
 After this block, there will be a block of 20 trials of stim-only which will act as a buffer to reinforce the initial behavioral task.
+
+-->
