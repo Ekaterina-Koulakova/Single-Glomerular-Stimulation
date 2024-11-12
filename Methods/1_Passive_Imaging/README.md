@@ -9,107 +9,113 @@
 
 ## Passive Imaging
 
-_Here, I will give a general overview of the project's work-flow. For specific imaging instructions releted to machinery or software settings, please reference my [IMAGING ROOM](https://docs.google.com/presentation/d/16TTvSaZxpv_2Ob1HF_JzDhX60qj2OGQvm1XAMHGfPwI/edit?usp=sharing) slides._
+_This section provides an overview of the workflow for mapping mitral cells. For specific imaging instructions related to equipment or software settings, please refer to my [IMAGING ROOM](https://docs.google.com/presentation/d/16TTvSaZxpv_2Ob1HF_JzDhX60qj2OGQvm1XAMHGfPwI/edit?usp=sharing) slides._
 
 ### Mitral Cell Mapping
 
-In order to locate the smallest principle circuit motif responsible for olfactory encoding, we first endevor to locate a glomerulus and its respective daughter mitral cells. 
+To identify the principal functional circuit motif involved in olfactory encoding, we begin by locating a glomerulus and its associated daughter mitral cells.
 
-The mice in which we attempt to do so in are genetically modified to express Channel Rhodopsin in the olfactory sesnsory neurons (OSNs) whose axons terminate in glomeruli on the surface of the olfactory bulb (OB) and GCamp in the respective excitatory projection neurons layers. In this way, we are able to stimulate multiple glomeruli using a DMD pattern light projection and concurrently image at projection neuron layers. Specifically, we image at select depths within the mitral cell (MC) layer, maximizing for cell density. The objective is to locate an imaging plane where at least three daughter MCs can be found and attributed to its stimulated parent glomerulus. At least three cells are necessary in the case that one of the cells is compromised during the subsequent steps of this experiment.
+We use genetically modified mice that express Channelrhodopsin in olfactory sensory neurons (OSNs), whose axons terminate in glomeruli on the surface of the olfactory bulb, and GCaMP in the excitatory projection neurons. This allows us to stimulate multiple glomeruli with a DMD light projection while concurrently imaging the projection neuron layers. Specifically, we focus on imaging within the mitral cell (MC) layer at depths that maximize cell density. The goal is to identify an imaging plane where at least three daughter MCs are visible and can be linked to their stimulated parent glomerulus. This number of cells is necessary to account for potential complications in the subsequent steps of the experiment.
 
 #### Imaging Specifics
 
 **1. Identify Field of View**
 
-Objective Zoom: 1X
+**Objective Zoom:** 1X
 
-Each OB can be modeled using a spere, with glomeruli along the surface and the subsequent excitatory cells extending radially inward. As such, when mapping daughter MCs to their respective parement glomeruli, it is promising to start at a point at the top of this sphere so that the daughter MCs are located directly below your selected imaging plane. This isn't crutial, as at times the OB can have bone overgrowths or simply dim glomeruli, but in any case, this will make your life a tad easier going forth.
+The olfactory bulb (OB) can be modeled as a sphere, with glomeruli located on the surface and the corresponding excitatory cells extending radially inward. When mapping daughter mitral cells to their respective parent glomeruli, it is often useful to start at the top of this sphere, so that the daughter MCs lie directly beneath your selected imaging plane. This isn’t always critical, as the OB can sometimes have bone overgrowths or dim glomeruli, but starting from this position can make your life a tad easier moving forward.
 
-Once you think you've found a clear glomerular plane, take a reference image. This will help you to realign the objective if need be. For reference images, it is advised to average 200 imaging frames. 
+Once you’ve identified a clear glomerular plane, capture a reference image. This will help you realign the objective in future sessions. For reference images, it is recommended to average 200 imaging frames.
 
-Next, proceed to explore deeper to see if there are any clusters of MCs that could potentially be imaged. If there are not, go back to the glomerular surface and find a new peice of the bulb to explore. 
+Next, explore deeper to check for any clusters of mitral cells that could be imaged. If no clusters are found, return to the glomerular surface and explore a different region of the bulb. 
 
-An example of a good glomerular and associate MC plane can be seen here. 
+An example of a well-defined glomerular and associated MC plane is shown below.
 
 <p align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/images/identify_FoV.jpg" alt="FoV Identification" width="600" />
 </p>
 
-Repeat this step as many times as necessary.
+This is an interative process so repeat this process as many times as necessary.
 
 **2. Z-stack Imaging**
 
-Objective Zoom: 1X
+**Objective Zoom:** 1X
 
-Once you have located your respective plane, take a z-stack or a stack of TIFFs taken at multiple focal distances to create an image with a greater depth of field. Start the z-stack above any glomeruli and set the end of the imaging to below the mitral cells. Take note of your starting and ending depths (Z values) in order to be best able to relocate your favored imaging planes. Choose a step count that would result in increments of 5 µm. MCs have a cell body diameter of 20 to 30 um, but in attempts to find an imaging plane in which the most MCs appear, this increment has proven to be most effective. 
+After locating the desired imaging plane, capture a z-stack or a series of TIFF images taken at multiple focal depths to create an image with greater depth of field. Start the z-stack above the glomeruli and set the end of the imaging below the mitral cells. Be sure to record your starting and ending depths (Z values) to facilitate future relocation of your preferred imaging planes. Choose a step increment that results in 5 µm intervals. While mitral cell body diameters range from 20 to 30 µm, a 5 µm increment has been found to be most effective when searching for an imaging plane with maximal MC visibility.
 
-In analysing the resultant z-stack, jot down your favored depths by considering the simple relation below.
+When analyzing the resulting z-stack, note your preferred depths using the following relation.
 
 $$ \text{favored depth} = \text{starting depth} - (\text{frame number} \times \text{step increment (5µm)}) $$
 
 **3. Conduct MC Mapping**
 
-Now that you have a 1X reference image of the glomeruli as well as a list of your favored MC imaging plane depths, it is time to start mapping parent glomeruli to daughter MCs. 
+**Objective Zoom:** 1X (Glom), 2X (MC)
 
-Open the reference image in ImageJ and outline the glomeruli that you would like to stimulate. The light from the stimulation will likely disperse, so make sure to draw the outline within the confines of the glomerulus' perimeter. These selected areas will be refered to as regions of interest or ROIs from now on. Now, save the ROI's that you have selected in a ZIP file and convert them to a format callibrated for the microscope's DMD. 
+Now that you have a 1X reference image of the glomeruli and a list of preferred mitral cell imaging depths, you can begin mapping the parent glomeruli to their daughter MCs.
 
-Using ScanImage, Wavesurfer, and the DMDControl panel, you can now map the MCs. Position the objective (monitoring through ScanImage) to a plane that you would line to image. The stimulation light is columnar and so it is not really affected by the position of the objective along the z-axis. The 2P imaging, however, requires the light to be collected from a focus point and so it is imperative that you position the objective at the imaging plane. 
+Open the reference image in ImageJ and outline the glomeruli you wish to stimulate. Since the stimulation light may disperse, ensure that the outline is drawn within the perimeter of the glomerulus. These selected regions will be referred to as regions of interest (ROIs) from here on. Save the selected ROIs in a ZIP file and callibrate them to match the spacial locations compatible with the microscope’s DMD.
 
-I would recommend first mapping at the glomerular level (Objective Zoom: 1X) and only then proceed to image at the MC layer (Objective Zoom: 2X) at the selected depths from the prior step. This order will allow you to consider if by stimulating a single glomeruli, you are accidentally also axciting a neighboring one. This can be a result of hitting the axons of a neighboring glomeruli which run along the surface of the OB, provided that the stimulation light is columnar as mentioned previously and doesn't exclusively strike the single intended glomeruli. 
+Using ScanImage, Wavesurfer, and the DMDControl panel, you can proceed with MC mapping. Position the objective (viewing through ScanImage) to the imaging plane you wish to focus on. The stimulation light is columnar, so it is not significantly affected by changes along the z-axis. However, 2P imaging requires a focused light collection, so it's critical to position the objective at the desired imaging plane.
 
-Wavesurfer is used to time the stimulus with respect the the mouse's sniff cycle. This is done as the glomeruli and MCs, in response to identical stimulus parameters, experience sniff-cycle dependent fluctuations i ntheir fluorecence. In this way, while mapping daughter MCs, it is imperative to keep the timing constant of the stimulus with respect to sniff-cycle constant. The latency of the single pulse with respect to sniff-cycle enacted in our protocol is 50 ms. The pulse itself is 10 ms long.  
+I recommend first performing the mapping at the glomerular level (Objective Zoom: 1X), and then imaging at the MC layer (Objective Zoom: 2X) at the selected depths from the previous step. This order allows you to assess whether stimulating a single glomerulus inadvertently excites a neighboring one. This could occur if the stimulation light, being columnar, stimulates axons from nearby glomeruli that run along the surface of the olfactory bulb (OB).
 
-For MC mapping, selecting an appropreate power is imperative so that you are not stimulating the surrounding glomeruli beyond what is avoidable. For animals with bright YFP expression at the glomerular layer, apply 2.5V to the AOM which amounts to a $22 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. For animals with dim YFP expression at the glomerular layer, apply 3.0 to 3.5V to the AOM which amounts to a $35$ to $50 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. 
+<!--
+Wavesurfer is used to synchronize the stimulus with the mouse's sniff cycle, as both glomeruli and MCs experience sniff-cycle-dependent fluorescence fluctuations in response to identical stimuli. It’s crucial to maintain constant stimulus timing relative to the sniff cycle while mapping daughter MCs. The protocol sets a latency of 50 ms between the stimulus pulse and the sniff cycle, with a pulse duration of 10 ms.
+-->
 
-Use the images produced by MC mapping to further refine the depth at which you would like to image the mitral cells.
+For MC mapping, it’s important to choose the correct stimulus power to minimize the stimulation of surrounding glomeruli. For animals with bright YFP expression in the glomerular layer, apply 2.5V to the AOM, which corresponds to a $22 \ \text{mW}/\text{mm}^2$ power density at the objective surface. For animals with dim YFP expression, apply 3.0 to 3.5V to the AOM, resulting in a $35$ to $50 \ \text{mW}/\text{mm}^2$ power density at the objective surface.
+
+Use the images obtained from MC mapping to further refine the depth at which you wish to image the mitral cells.
 
 **4. Refine Imaging Planes**
 
-In the previous step, MC mapping was conducted at an Objective Zoom of 2X. This is so that you would be able to see the activity of a greater area of MCs in response to the glomerular stimulation. However at 2X, the cell bodies of the MCs are not clearly distinguishable. Use the 2X mapping plots to inform the selection of a more precise imaging field where 3 or more MCs are seen to be excited by the stimulation of their respective glomeruli. Further cull this imaging field selection by choosing a panel of ROIs that have minimal cross-talk with neighboring glomeruli. 
+**Objective Zoom:** 1X (Glom), 3X (MC)
 
-Now, you should have a narrowed ROI panel and only a selct few depths that you are interested in. Redo the MC mapping at a 3X zoom while imaging the MCs that you have selected. This step may require you to redraw the ROIs so that they are still located respectively above the MCs which you may have had to move the objective for in 3X. 
+In the previous step, MC mapping was conducted at an Objective Zoom of 2X to capture a larger area of MC activity in response to glomerular stimulation. However, at 2X, the cell bodies of the MCs are not clearly distinguishable. Use the 2X mapping results to identify a more precise imaging field, where at least three MCs are excited by stimulation of their respective glomeruli. Further refine this field by selecting ROIs that minimize cross-talk with neighboring glomeruli.
 
-Below are example images from a successful MC Mapping session at 0µm and 92µm. The red region on the left-most column of images indicates where the stimulation was presented. The righ-most bottom image shows the four daughter MCs that were responsive to the single-glomerular stimulation.
+Now that you have a narrowed set of ROIs and selected depths of interest, conduct a second round of MC mapping at a 3X zoom to focus on the MCs you’ve identified. This step may require you to redraw the ROIs to ensure they are still positioned correctly above the MCs, especially if you’ve had to adjust the objective to accommodate the 3X zoom.
+
+Below are example images from a successful MC mapping session at depths of 0 µm and 92 µm. The red region in the left-most column of images indicates where the stimulation was applied. The right-most bottom image shows the four daughter MCs that responded to the single-glomerular stimulation.
 
 <p align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/images/MC_Mapping.jpg" alt="FoV Identification" width="800" />
 </p>
 
-_By the end of this section, you should have a select single glomerulus that you would like to stimulate as well as an imaging depth at which you would like to image its repective daughter MCs._
+_By the end of this section, you should have selected a single glomerulus to stimulate and identified the imaging depth at which to capture its respective daughter MCs._
 
 ### STIM-ONLY Imaging
 
-In the previous section where we mapped the daughter MCs to the glomerulus, the stimulation was not sniff-locked, meaning, the stimulation was presented at times not respective of the sniff cycle. Yet, as we will see, the activation of daugter MCs is highly contingent on the phase of the sniff cycle during which they were activated. 
+In the previous section, we mapped the daughter MCs to the glomerulus without synchronizing the stimulus to the sniff cycle. As a result, stimulation was presented independently of the sniff cycle. However, the activation of daughter MCs is highly dependent on the phase of the sniff cycle during which they are stimulated.
 
-In the stimulation-only session, we procede with stimulating the single glomerulus at various latencies with respect to the sniff cycle. Specifically, the latencies that we have selected are: 10, 30, 60, 120, 180, 240 ms. These latencies were selected for a few reasons. One reason is that these latencies span the entire sniff-cycle, 0 ms being attributed to the mouse's inhilation. In this way, it will be possible to see the fluorescence changes due to the phase of the sniff cycle in response to the same stimulus being presented. Additionally, considering that our aquisition rate is 30 frames/sec, most of these latencies are well divisible by 30, making them easily convertible to frames when analysing the images. 
+In the STIM-ONLY session, we proceed by stimulating the single glomerulus at various latencies relative to the sniff cycle. The selected latencies are: 10, 30, 60, 120, 180, and 240 ms. These latencies were chosen for a few reasons. Firstly, they span the entire sniff cycle, with 0 ms corresponding to the mouse's inhalation phase. This allows us to observe fluorescence changes in response to the same stimulus presented at different phases of the sniff cycle. Additionally, given our acquisition rate of 30 frames per second, these latencies are well-divisible by 30, making it easy to convert them into frame numbers when analyzing the images.
 
-Stim-only imaging should be conducted in two sessions: one at the glomerul ar level and the next at the MC level. However, it would be best to start with the MC layer as it has been observed that if MCs get stimulated multiple times in the confines of a single day, they diminish significantly in fluorescence. 
+STIM-ONLY imaging should be conducted in two sessions: one at the glomerular level and another at the MC level. However, it is recommended to start with the MC layer, as repeated stimulation of MCs within the same session can significantly diminish their fluorescence over time.
 
-The power you should use in stimulating again varies with respect to the ChR2 and GCamp expression in your mouse. For animals with bright expression, apply 2.5V to the AOM which amounts to a $22 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. For animals with dim YFP expression, apply 3.0 to 3.5V to the AOM which amounts to a $35$ to $50 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. 
+The power used for stimulation varies depending on the expression levels of ChR2 and GCaMP in the mouse. For animals with bright expression, apply 2.5V to the AOM, which results in a $22 \ \text{mW}/\text{mm}^2$ power density at the surface of the objective. For animals with dim YFP expression, apply 3.0 to 3.5V to the AOM, corresponding to a $35$ to $50 \ \text{mW}/\text{mm}^2$ power density.
 
-Here is an example of some plots that can be generated from this step using this [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimonly_241029.m). 
+Example plots generated from this step can be found using this [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimonly_241029.m). 
 
 <div align="center">
    <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_ROIs.png" alt="Alt text" width="2000"/>
 </div>
 
-This plot displays the normalized, half-second average fluorescence amplitude of selected regions of interest (ROIs) following stimulation. The different columns correspond to the various stimulation latencies, as indicated on the x-axis. In the top row, which shows the glomeruli within the selected field of view, the stimulated glomerulus at different latencies consistently exhibits the highest average fluorescence amplitude. Similarly, in the mitral cell (MC) layer, the black-outlined dMCs show maximum fluorescence amplitude. 
+This plot displays the normalized, half-second average fluorescence amplitude of selected ROIs following stimulation. The fluorescence delta from the no-stim control condition is what is shown as this condition was subtracted from each image. The different columns correspond to the various stimulation latencies, as indicated on the x-axis. In the top row, which shows the glomeruli within the selected field of view, the stimulated glomerulus at different latencies consistently exhibits the highest fluorescence amplitude. Similarly, in the MC layer, the black-outlined daughter MCs show maximum fluorescence amplitude.
 
-This plot provides a useful validation of correct glomerulus targeting and shows whether its associated dMCs are co-activated. Since we are using 1P stimulation on a specific glomerulus, the stimulation light has a columnar profile, meaning there's a chance of stimulating axons from other glomeruli passing over the targeted one. Such unintended stimulations can also be identified using this plot.
+This plot helps validate correct glomerulus targeting and checks whether its associated daughter MCs are co-activated. Since we use 1P stimulation on a specific glomerulus, the stimulation light has a columnar profile, meaning that axons from neighboring glomeruli may also be stimulated. Such unintended stimulations can be detected through this plot.
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_dF.png" alt="Alt text" width="800"/>
 </div>
 
-This plot shows the fluorescence cross-traces of the activation not only of the selected glomerulus but also of its associated dMCs. The fluorescence amplitudes appear to fluctuate in sync with the mouse's breathing cycles, a relationship further clarified by the subsequent average plot.
+This plot shows the fluorescence cross-traces of the selected glomerulus and its associated daughter MCs. The MC fluorescence amplitudes fluctuate in sync with the mouse's breathing cycles, a relationship further clarified by the subsequent averaging plot.
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_stim-time_avg.png" alt="Alt text" width="800"/>
 </div>
 
-The plot above illustrates the response of the selected glomerulus and its associated dMCs to stimulation at various latencies. As mentioned earlier, despite the constant power of the input stimulation, the responses of both the glomeruli and their corresponding dMCs consistently fluctuate with the mouse’s breathing cycle. Notably, the inhalation phase of the sniff cycle lasts approximately 120 ms, which is reflected in the amplitude of the 180 ms stimulation curve, showing a minimum. Following a full breathing cycle, at 240 ms, the amplitude returns to the maximum observed at the 10 ms stimulation.
+The plot above illustrates the response of the selected glomerulus and its associated daughter MCs to stimulation at various latencies. Despite constant power in the input stimulus, the responses of both the glomeruli and their corresponding MCs fluctuate with the mouse’s breathing cycle. Notably, the inhalation phase of the sniff cycle lasts approximately 120 ms, which is reflected in the amplitude of the 180 ms stimulation curve, showing a minimum. After a full breathing cycle, at 240 ms, the amplitude returns to its maximum value, similar to the response at 10 ms.
 
-This is cool because, unlike odor input, where the volume may vary with the amount of air inhaled, we are directly stimulating the axons of the olfactory sensory neurons (the glomeruli). Yet, even using an artificially generated input stimulus, the response is still modulated by the breathing cycle.
+This is cool because, unlike odor input, where the volume may vary with the amount of air inhaled, we are directly stimulating the axons of the olfactory sensory neurons (the glomeruli). Yet, even with an artificially generated input stimulus, the response is still modulated by the breathing cycle.
 
 ### ODOR-ONLY Imaging
 
