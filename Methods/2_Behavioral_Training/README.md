@@ -19,7 +19,7 @@ The mice were trained to detect optogenetic stimulation of a selected single glo
   <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_Training_combinedmice.PNG" alt="Alt text" width="800"/>
 </p>
 
-The code to this plot is linked [HERE](https://raw.githubusercontent.com/ekaterinakoulak/Single-Glomerular-Stimulation/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipy).
+The code to this plot is linked [HERE](https://raw.githubusercontent.com/ekaterinakoulak/Single-Glomerular-Stimulation/main/Methods/2_Behavioral_Training/SGS_Training_combinedmice.ipy).
 
 On the x-axis, the sessions are numbered with one session being conducted per day. The length of each session varied in length depending on the motivation of the mouse and the stubborness of the trainer on that day.  Typically, mice began with sessions of 100 to 200 individual trials, gradually working up to sessions with as many as 500 trials. If extending session lengths becomes difficult after a week, the issue may stem from providing too much water per trial.
 
@@ -57,9 +57,9 @@ Below is a plot showing the progression of a single mouse's training using Pavlo
   <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_Training_mouse0691.png" alt="Alt text" width="800"/>
 </p>
 
-The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_singlemouse.py). 
+The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/2_Behavioral_Training/SGS_Training_singlemouse.py). 
 
-**Why doesn't the plot showing a combination of all training sessions for all mice exhibit the same check-mark trend?** The single-mouse plot shows a disproportionately higher detection rate during the first few sessions due to the increased likelihood of trials being rewarded via pavlovian conditioning. This doesn’t necessarily indicate that the mouse successfully detected the stimulus, but rather that the reward was automatically given. In the combined training plot, we specifically exclude trials where a Pavlovian reward was administered from the detection-rate calculations. If you review the [code](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_Training_combinedmice.ipynb) for the combined training plot, you'll notice that pavlovian trials were filtered out to provide a more accurate representation of the actual detection performance across all mice.
+**Why doesn't the plot showing a combination of all training sessions for all mice exhibit the same check-mark trend?** The single-mouse plot shows a disproportionately higher detection rate during the first few sessions due to the increased likelihood of trials being rewarded via pavlovian conditioning. This doesn’t necessarily indicate that the mouse successfully detected the stimulus, but rather that the reward was automatically given. In the combined training plot, we specifically exclude trials where a Pavlovian reward was administered from the detection-rate calculations. If you review the [code](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/2_Behavioral_Training/SGS_Training_combinedmice.ipynb) for the combined training plot, you'll notice that pavlovian trials were filtered out to provide a more accurate representation of the actual detection performance across all mice.
 
 ---
 ### Lowering Pulse Count
@@ -100,7 +100,7 @@ Below is an example of a Physichometric Curve taken using the Block Method condu
   <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Block_combinedmice.png" alt="Alt text" width="800"/>
 </p>
 
-The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Block_combinedmice.py). 
+The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/2_Behavioral_Training/SGS_PsychCurve_Block_combinedmice.py). 
 
 The most important take-away from this method of cunducting the psychometric curve is that the mouse does not learn to lick for only the maximum power-level. This was an issue encountered with the other methods employed as will be discussed below. 
 
@@ -112,7 +112,7 @@ We also tried rendering the psychometric curve using non-rewarded probe trials. 
   <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_combinedmice.png" alt="Alt text" width="800"/>
 </p>
 
-The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_combinedmice.py). 
+The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/2_Behavioral_Training/SGS_PsychCurve_Probe_combinedmice.py). 
 
 **This data-acquisition method has a few issues which will be discussed below.**
 
@@ -124,7 +124,7 @@ As mentioned previously, only 11% of the stim trials were probes. This small per
   <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_mouse0070.png" alt="Alt text" width="800"/>
 </p>
 
-This plot is mainly used to monitor the data collection process from day to day to see wich power-levels are needed to be probed further for the next session. You can see that for $~60 \ \text{mW}/\text{mm}^2$, the histogram is missing a bar and this is due to 89% (100-11%) of all of the stim trials being conducted at this maximum power density. The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_singlemouse.py). 
+This plot is mainly used to monitor the data collection process from day to day to see wich power-levels are needed to be probed further for the next session. You can see that for $~60 \ \text{mW}/\text{mm}^2$, the histogram is missing a bar and this is due to 89% (100-11%) of all of the stim trials being conducted at this maximum power density. The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/2_Behavioral_Training/SGS_PsychCurve_Probe_singlemouse.py). 
 
 **2. mouse learns to lick for only maximum power despite partial reinforcement**
 
@@ -136,7 +136,7 @@ Below is an example plot for the mouse that was analyzed above where the success
   <img src="https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/plots/Behavior/SGS_PsychCurve_Probe_mouse0070_sessions.png" alt="Alt text" width="800"/>
 </p>
 
-The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/Behavioral_Training/SGS_PsychCurve_Probe_singlemouse_sessions.py). 
+The code to this plot is linked [HERE](https://github.com/ekaterinakoulak/Single-Glomerular-Stimulation/blob/main/Methods/2_Behavioral_Training/SGS_PsychCurve_Probe_singlemouse_sessions.py). 
 
 In all, not only are you limited in the number of probe-aquisitions per session that you are able to acheive, but you are also limited in the number of sessions that you are able to run before the mouse learns to lick for the standard maximum power.
 
