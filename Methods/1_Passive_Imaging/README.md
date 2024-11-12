@@ -156,17 +156,35 @@ This odorant selection is crucial for the next step, STIM & ODOR Imaging, where 
 
 Here are example plots generated during the odor screening process using this [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_odoronly_241029.m). 
 
+Below is a plot displaying the normalized, half-second average fluorescence amplitude of selected ROIs following inhilation onset, 1 second after odor (Hexanal) presentation. The fluorescence delta from the 'no-odor' control condition is what is shown as this condition was subtracted from each image. The activity of all ROIs were normalized with respect to their layer prior to being averaged. The different columns correspond to the two difference odor concentrations used (1% and 5% SVD), as indicated on the x-axis. In the top row, which shows the glomeruli within the selected field of view, you can see that our selected glomeruli is barely affected by the odor at the smaller concentration. At the higher concentration, the glomerulus becomes only slightly more activated. The black-outlined daughter MCs seen to follow the same relation.
+
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/odor_ODOR-ONLY_ROIs_Hexanal.png" alt="Alt text" width="800"/>
 </div>
+
+Below are the floorescent cross-traces of selected ROIs normalized with respect to their anatomical layer. 
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/odor_ODOR-ONLY_dF_Hexanal.png" alt="Alt text" width="800"/>
 </div>
 
+At the glomerular layer, I plotted the The averaged cross-traces of the selected glomerulus' activation at two concentrations in blue. In black, you have the activation of the selected glomerulus when there is not odor presented. As you can see, the 'no-odor' code shows a fluorescence cross-trace which mirrors that of the odor conditions. This indicates that there is cross-contamination between sessions. Cross-contamination means that the odor lingers into the next trials in the nose port and in the rubber tubes which we use for odor delivery. For this reason, it may be best to conduct pass-odor imaging using blocks of trials as listed below.
+
+- *1st block:* 10 trials at the no-odor condition
+- *2nd block:* 10 trails at a low-concentration odor condition
+- *3rd block:* 10 trails at a high-concentration odor condition
+
+Regardless, in the glomerular plot, you see the cross-traces of neighboring glomeruli activated with odor presentation. You can see that we selected an odor for which th eneighboring-glomeruli's activation precedes that of our selected glomerulus. These conditions resemble that of a weak-ligand odor. However, ideally the daughter MCs would be inhibited in the case fo a weak-ligand odor. This would allude to there being lateral connectivity between the neighboring glomeruli and the selected glomerulus. Yet, you can see that although the activity of our glomerulus follows neighboring glomeruli, the activity of the daughter MCs seeing to correlate with the activity of the parent-glomerulus indicating low lateral connectivity. 
+
+Although no stimulation is presented in the **ODOR-ONLY** condition, we are working towards presenting stimulus and odor together. For this reason, the below plot was created to mirror the time-averaged plot fo the **STIM-ONLY** condition. 
+
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/odor_ODOR-ONLY_stim-time_avg_Hexanal.png" alt="Alt text" width="800"/>
 </div>
+
+Above, you can see the response of the selected glomerulus and its associated daughter MCs at various latencies at which a stimulation would eventually be presented. Plotted dots symbolize the half-second-time-average of the fluorescence trace after the given time point. 
+
+Overall, the above **ODOR-ONLY** plots are not example of an ideal odor to use in this experiement, but rather the code available for odor-screening. The ideal odor would be a weak ligand which would activate the targeted glomerulus only at a higher concentration, after its neighboring glomeruli have been activated. Additionally, to ensure connectivity between the neighboring glomeruli and the selected glomerulus, it is important to see the activity of daughter MC cells do not exactly correlete with that of the selected glomerulus. In other words, you want to bee the signal being modified in a certain way. For example, perhapse even though the selected glomerulus is excited, the daughter MCs are inhibited. 
 
 ## ODOR & STIM Imaging - Replicating Mursel’s Results
 
