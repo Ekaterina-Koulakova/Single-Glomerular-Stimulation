@@ -43,6 +43,12 @@ This is an interative process so repeat this process as many times as necessary.
 
 After locating the desired imaging plane, capture a z-stack or a series of TIFF images taken at multiple focal depths to create an image with greater depth of field. Start the z-stack above the glomeruli and set the end of the imaging below the mitral cells. Be sure to record your starting and ending depths (Z values) to facilitate future relocation of your preferred imaging planes. Choose a step increment that results in 5 µm intervals. While mitral cell body diameters range from 20 to 30 µm, a 5 µm increment has been found to be most effective when searching for an imaging plane with maximal MC visibility.
 
+Below is an example z-stack taken at a 2X magnification.
+
+<p align="center">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/images/240424_MC_Z_stack_2X_15frames.gif?raw=true" width="300"/>
+</p>
+
 When analyzing the resulting z-stack, note your preferred depths using the following relation.
 
 $$ \text{favored depth} = \text{starting depth} - (\text{frame number} \times \text{step increment (5µm)}) $$
@@ -119,7 +125,7 @@ This is cool because, unlike odor input, where the volume may vary with the amou
 
 ### ODOR-ONLY Imaging
 
-Imaging with an odorant exclusively will allow us to select the one which we will use as our background odorant in subsequent imaging sessions. Here are some potential odorants that are worth screening. 
+Imaging with a passively-presented odorant will allow us to select a background odorant for subsequent imaging sessions. Below are some potential odorants worth screening which activate many dorsal glomeruli.
 
 | Monomolecular Odorant   | Concentration Diluted in <br> 5 µL of Distilled Water |
 |-------------------------|-------------------------------------------------------|
@@ -132,23 +138,23 @@ Imaging with an odorant exclusively will allow us to select the one which we wil
 | 2MBA                    | 10 µL                                                 |
 | Propionic Acid          | 20 µL                                                 |
 
-Odor-only imaging will take 4 imaging sessions, imaging not only at the glomeruli and MC planes, but also at 2 different concentrations: 20 and 100 flow. '20 flow' is associated with 1% SVD or saturated vapor pressure and '100 flow' is associated with 5% SVD. 
+Odor-only imaging will require four imaging sessions, covering both the glomeruli and MC planes, at two different concentrations: 20 and 100 flow. The "20 flow" corresponds to 1% SVD (saturated vapor density), while the "100 flow" corresponds to 5% SVD.
 
-We are ideally searching for two odorants. 
+We are ideally searching for two odorants described below. 
 
 1. A **strong ligand**
 
 _A **ligand** is an odorant which activates the same olfactory receptors as the single glomeruli which we have selected. In this way, a strong ligand will activate the single glomerulus at even very small concentrations while a weak ligand will only activate the single glomeruli at higher concentrations._
 
-This odorant will activate the single glomeruli in question proceding any of its neighboring glomeruli. In other words, a low-concentration of this odorant should be able to activate this glomeruli. Provided that this project aims to study the circuitry involved in olfactory encoding, this odorant is meant to act as a control for which our selected glomeruli's excitation procedes that of neighboring glomeruli. This in turn will allow the subsequent activations of our selected glomeruli's daughter MCs to follow.
+A **strong ligand** will activate the single glomeruli in question proceding any of its neighboring glomeruli. In other words, a low-concentration of this odorant should be able to activate this glomeruli. Provided that this project focuses on olfactory encoding circuitry, this odorant will serve as a control, ensuring that the excitation of the selected glomerulus precedes the activation of adjacent glomeruli, allowing for the subsequent activation of the daughter MCs.
 
 3. A **weak ligand**
 
-This odorant should activate the selected single glomeruli only after its neighboring glomeruli have been activated. In other words, a low-concentration of this odorant should not be able to activate this glomeruli while a higher concentration should be able to. Provided that this project aims to study the circuitry involved in olfactory encoding, the weak ligand background odorant is meant to provide a source of inhibition for the MCs of our selected glomerulus as it is suspected that the MCs of glomeruli activated prior to our select glomerulus will enact lateral inhibition.
+A **weak ligand** will activate the selected single glomeruli only after its neighboring glomeruli have been activated. In other words, a low-concentration of this odorant should not be able to activate our selected glomerulus while a higher concentration should be able to. Provided that this project aims to study the circuitry involved in olfactory encoding, the weak ligand background odorant is meant to provide a source of inhibition for the MCs of our selected glomerulus as it is suspected that the glomeruli activated prior to our select glomerulus will enact lateral inhibition.
 
-This odorant selection is imperative for the next step 'STIM & ODOR Imaging' where we will explore the interaction between the excitation of the MCs at various latencies with respect to the sniff cycle and background odorant inflicted inhibition.
+This odorant selection is crucial for the next step, STIM & ODOR Imaging, where we will explore the interaction between MC excitation at various latencies relative to the sniff cycle and the inhibition caused by the background odorant selected.
 
-Here are some example plots that can be rendered during odor screening which were generated using this [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_odoronly_241029.m). 
+Here are example plots generated during the odor screening process using this [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_odoronly_241029.m). 
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/odor_ODOR-ONLY_ROIs_Hexanal.png" alt="Alt text" width="800"/>
