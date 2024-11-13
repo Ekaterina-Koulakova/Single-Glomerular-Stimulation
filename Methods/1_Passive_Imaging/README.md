@@ -184,19 +184,36 @@ Although no stimulation is presented in the **ODOR-ONLY** condition, we are work
 
 Here, you can see the response of the selected glomerulus and its associated daughter MCs at various latencies before stimulation is presented. The plotted dots represent the half-second time average of the fluorescence trace after each time point. 
 
-Overall, the **ODOR-ONLY** plots are not examples of an ideal odor for this experiment, but rather a starting point for odor screening. The ideal odor would be a weak ligand that activates the targeted glomerulus only at a higher concentration, after neighboring glomeruli have been activated. Additionally, to ensure connectivity between neighboring glomeruli and the selected glomerulus, it is important that the activity of the daughter MCs does not perfectly correlate with the activity of the selected glomerulus. Ideally, the signal should be modified in some way — for example, even though the selected glomerulus is excited, the daughter MCs might be inhibited.
+Overall, **these **ODOR-ONLY** plots are not examples of an ideal odor for this experiment**, but rather a starting point for odor screening. The ideal odor would be a weak ligand that activates the targeted glomerulus only at a higher concentration, after neighboring glomeruli have been activated. Additionally, to ensure connectivity between neighboring glomeruli and the selected glomerulus, it is important that the activity of the daughter MCs does not perfectly correlate with the activity of the selected glomerulus. Ideally, the signal should be modified in some way — for example, even though the selected glomerulus is excited, the daughter MCs might be inhibited.
 
 ## ODOR & STIM Imaging - Replicating Mursel’s Results
 
-This session should be done on the same day as the ODOR & STIM session that is described below. 
+Here are two of the weaknesses carrying over from the previous **ODOR_ONLY** procedure in odor selection (Hexanal). 
+1. The odor: _Hexanal_, that we used did not demonstrate appropreate connectivity with its neighboring glomeruli.
+2. We witnessed contamination between trials meaning the odor would linger in the nose port for longer than 15 sec.
 
-This session is meant to verify minimal cross-glomerular stimulation when we are attempting to target the single glomerulus. 
+Given these weaknesses in the odor which we selected to procede with, the subsequent plots that were generated to analyze the selected glomerulus' activation in a **ODOR-STIM** condition did not turn out as expected. Below I will explain more in depth the issues with this iteration of the experimenet. 
 
-It is important to do this session prior to the ODOR & STIM session as the odors included in the ODOR & STIM session can linger into the ‘stim only’ trials. If for example you chose an inhibitory odor, the fluorescence changes as a result of stimulation-only can be suppressed by this lingering odorant.
+Alas, this is the code that I wrote to analyze the results of this session: [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimodor_241102.m).
 
-Ensure this session follows after the ODOR & STIM session.
+The **ODOR-STIM** session is very long. Below I summarized the trials presented for each condition in a randomized order.
 
-Provided that the odor: _Hexanal_, that we used for this step is not a true weak ligand, the subsequent plots that were generated for the selected glomerulus using this odor were not able to replicate Mursel's prior results. Alas, the plots generated to analyze this conclusion were generated using this [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimodor_241102.m).
+- **no stim nor odor:** 10 trials
+- **odor-only high concentration:** 10 trials
+- **odor-only low concentration:** 10 trials
+- **stim-only:** 10 trials per 6 latencies
+- **stim & odor low concentration:** 10 trials per 6 latencies
+- **stim & odor high concentration:** 10 trials per 6 latencies
+
+**DEDUCTION FROM LAST ITERATION OF PROJECT**
+
+The fact that their is cross-contamination of the odor from trial to trail was present even in this paradigm. To avoid this, in the next iteration, we will break this session into 3 seperate sessions.
+
+- **1st session :** stim-only and no-odor trials
+- **2nd session :** stim-only, no-odor, odor-only low concentration, stim & odor low concentration
+- **3rd session :** stim-only, no-odor, odor-only high concentration, stim & odor high concentration
+
+By breaking the one massive session into 3 seperate sessions, we will not only avoid contamination in the no-odor and stim-only sessions, we will have the no-odor and stim-only trials serve as a control in subsequent sessions where odor is introduced.
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stimodor_STIM-ONLY_dF.png" alt="Alt text" width="800"/>
