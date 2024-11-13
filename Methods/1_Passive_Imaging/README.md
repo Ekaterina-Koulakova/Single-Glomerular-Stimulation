@@ -188,16 +188,16 @@ Overall, **these **ODOR-ONLY** plots are not examples of an ideal odor for this 
 
 ## ODOR & STIM Imaging 
 
-Here are two of the weaknesses carrying over from the previous **ODOR_ONLY** procedure in odor selection (Hexanal). 
-1. The odor: _Hexanal_, that we used did not demonstrate appropreate connectivity with its neighboring glomeruli.
-2. We witnessed contamination between trials, meaning the odor would linger in the nose port for longer than 15 sec.
+**Limitations of the Previous ODOR-ONLY Procedure** 
+1. **Odor Connectivity:** The odor, Hexanal, did not exhibit appropriate connectivity with neighboring glomeruli.
+2. **Contamination Between Trials:** Odor lingering in the nose port led to contamination across trials, with odor traces persisting beyond the trial duration (15 sec).
 
-Given these weaknesses in the odor which we selected to procede with, the subsequent plots that were generated to analyze the selected glomerulus' activation in the **ODOR-STIM** condition did not turn out as expected. Below I will explain more in depth the issues with this iteration of the experimenet. 
+These issues impacted the accuracy of the subsequent plots generated to analyze the activation of the selected glomerulus in the **ODOR-STIM** condition. Below, I detail the specific issues observed in this experimental iteration.
 
-Alas, this is the code that I wrote to analyze the results of this session: [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimodor_241102.m).
+The code used to analyze the results is available here: [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimodor_241102.m).
 
-The **ODOR-STIM** session is very long. Below I summarized the trials presented for each condition in a randomized order.
-
+**ODOR-STIM Session Setup** 
+This session was lengthy and involved randomized trials for each condition:
 - **no stim nor odor:** 10 trials
 - **odor-only high concentration:** 10 trials
 - **odor-only low concentration:** 10 trials
@@ -205,58 +205,64 @@ The **ODOR-STIM** session is very long. Below I summarized the trials presented 
 - **stim & odor low concentration:** 10 trials per 6 latencies
 - **stim & odor high concentration:** 10 trials per 6 latencies
 
-**DEDUCTION FROM LAST ITERATION OF PROJECT**
+**Issues and Suggested Improvements**
 
-The fact that their is cross-contamination of the odor from trial to trail was present even in this paradigm. To avoid this, in the next iteration, we will break this session into 3 seperate sessions.
+The presence of cross-contamination between trials persisted in this paradigm. To address this, we will divide the session into three distinct sessions to minimize odor carryover and control conditions more effectively:
 
 - **1st session :** stim-only and no-odor trials
 - **2nd session :** stim-only, no-odor, odor-only low concentration, stim & odor low concentration
 - **3rd session :** stim-only, no-odor, odor-only high concentration, stim & odor high concentration
 
-By breaking the one massive session into three seperate sessions and presenting different condition as blocks of trials rather than randomized, we will not only avoid contamination in the no-odor and stim-only sessions, we will have the no-odor and stim-only trials serve as a control in subsequent sessions where odor is introduced.
+This division, presenting conditions in blocks rather than randomizing, should eliminate contamination in no-odor and stim-only trials while also allowing these trials to serve as controls when odors are introduced.
 
-The below plot shows the cross-traces of the **STIM-ONLY** condition at the 6 various latencies. You can see that relative to the plots generated in the **STIM-ONLY** section, [LINK to STIM-ONLY plot](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_dF.png), these traces appear to be contaminated with an odor as the activation of the selected glomeruli is relatively suppressed. 
+**Observations from the STIM-ONLY Condition**
+
+The following plot shows the cross-traces of the **STIM-ONLY** condition across six latencies. Compared to previous STIM-ONLY plots, ([view here](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_dF.png)), these traces appear contaminated by odor, as the activation of the target glomeruli is relatively suppressed.
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stimodor_STIM-ONLY_dF.png" alt="Alt text" width="800"/>
 </div>
 
-Below is the half-second stim-time averaged plot from the **STIM-ONLY** condition. You can see more clearly here that despite the activity of the glomeruli being excitatory, the activity of the MCs are suppressed. This clearly demonstrates the presence of odor contamination. Please reference the previous **STIM-ONLY** plot to compare these results: LINK to STIM-ONLY plot](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_stim-time_avg.png).
+Below is the half-second stim-time average plot for the STIM-ONLY condition. Despite excitatory glomerular activity, mitral cell activity is suppressed, further indicating odor contamination. Compare this to the original STIM-ONLY plot: [view here](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_stim-time_avg.png).
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stimodor_STIM-ONLY_stim-time_avg.png" alt="Alt text" width="800"/>
 </div>
 
-Below are fluorescent cross-traces from the glomerular and mitral cell layers under an **ODOR-ONLY** condition. These cross-traces are successful.
+**Successful ODOR-ONLY Condition Results**
+
+Fluorescent cross-traces from the glomerular and mitral cell layers under the **ODOR-ONLY** condition show successful results.
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stimodor_ODOR-ONLY_dF_Hexanal.png" alt="Alt text" width="800"/>
 </div>
 
-Below are half-second stim-time average curves from both the **STIM-ONLY** and **ODOR-ONLY** conditions from the larger session.
+Half-second stim-time average curves from both the **STIM-ONLY** and **ODOR-ONLY** conditions within the full session can be found below.
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stimodor_ODOR-ONLY_STIM-ONLY_stim-time_avg_Hexanal.png" alt="Alt text" width="800"/>
 </div>
 
-Now we address the **STIM-ODOR** condition. Below are the fluorescence cross-traces from the two odor concentrations (columns) for each cellular-layer (rows). You can see that the stimulation administed at various latencies barely affects the odor & stim-curves. As such, it can be concluded htat the odor concentrations which we are using in this step are too high. This introduces another amendment to the next iteration of the project.
+**Evaluation of STIM-ODOR Condition**
 
-**Prior to imaging the ODOR & STIM condition** we need to conduct a psychometric curve on the minimal power necessary for the more to detect the stimulus and the minimal odor-concentration necessary to mask the detection of the stimuls. 
+Below are fluorescence cross-traces from two odor concentrations across cellular layers for the **STIM&ODOR** condition from the full session. Stimulation at varying latencies has minimal effect on odor-stim curves, indicating that the odor concentrations are too high. This suggests the need for more intentional selection of odor-concentrations in subsequent iterations.
+
+**Deduction:** Before imaging in the **ODOR & STIM** condition, we should perform a psychometric analysis to determine the minimal power needed for the mouse to detect the stimulus and the minimal odor concentration necessary to mask detection.
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stimodor_STIM-ODOR_dF_Hexanal.png" alt="Alt text" width="800"/>
 </div>
 
-Finally, below is a compilation of all of the half-second stim-time averages from each condition. This si a confusing plot and is in the process of being simplified. However, it is a good analysis for the experimenter to use to see what is going on. 
+Finally, below is a compilation of all of the half-second stim-time average curves from each condition presented i nthe full session. This compilation of half-second stim-time averages from each condition is a work in progress but serves as a useful overview for analysis.
 
 <div align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stimodor_STIM-ODOR_stim-time_avg_Hexanal.png" alt="Alt text" width="800"/>
 </div>
 
-Overall, despite the plot above being generated with an odor which is not conducive for this project, they are shown to demonstrate the availability of code to analyze results after **STIM-ONLY**, **ODOR-ONLY**, and **STIM & ODOR** sessions. 
+Overall, despite the plots above being generated with an odor which is not conducive for this project, they are shown to demonstrate the availability of code to analyze results after **STIM-ONLY**, **ODOR-ONLY**, and **STIM & ODOR** sessions. 
 
-**SUMMARY of ODOR & STIM SESSION TAKE-AWAYS FOR THE NEXT SESSION**
+**Summary of Improvements for the Next Iteration of the Experiment**
 
-- select a weak-ligand odor which has high connectivity with neighboring glomeruli which procede in activation
-- break the large conglomerate session into smaller sessions to avoid contamination
-- redo this passive imaging session after behavioral training to select odor-concentration which are conducive to the stimulation power being used ie. the high-concentration of the odor should be able to 'mask' the stimulation.
+- Select a weak-ligand odor with strong connectivity to neighboring glomeruli.
+- Break single large sessions into smaller, separated sessions to prevent odor contamination.
+- Repeat this passive imaging session following behavioral training to identify odor concentrations that mask stimulation at the power used—ensuring that the stimulation and masking-odors result in comprable activity amplitudes.
