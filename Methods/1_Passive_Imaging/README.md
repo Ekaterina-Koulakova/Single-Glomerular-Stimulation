@@ -11,6 +11,8 @@
 
 _This section provides an overview of the workflow for mapping mitral cells. For specific imaging instructions related to equipment or software settings, please refer to my [IMAGING ROOM](https://docs.google.com/presentation/d/16TTvSaZxpv_2Ob1HF_JzDhX60qj2OGQvm1XAMHGfPwI/edit?usp=sharing) slides._
 
+---
+
 ### Mitral Cell Mapping
 
 To identify the principal functional circuit motif involved in olfactory encoding, we begin by locating a glomerulus and its associated daughter mitral cells.
@@ -89,11 +91,17 @@ Below are example images from a successful MC mapping session at depths of 0 µm
 
 _By the end of this section, you should have selected a single glomerulus to stimulate and identified the imaging depth at which to capture its respective daughter MCs._
 
+---
+
 ### STIM-ONLY Imaging
 
 In the previous section, we mapped the daughter MCs to the glomerulus without synchronizing the stimulus to the sniff cycle. As a result, stimulation was presented independently of the sniff cycle. However, the activation of daughter MCs is highly dependent on the phase of the sniff cycle during which they are stimulated.
 
 In the STIM-ONLY session, we proceed by stimulating the single glomerulus at various latencies relative to the sniff cycle. The selected latencies are: 10, 30, 60, 120, 180, and 240 ms. These latencies were chosen for a few reasons. Firstly, they span the entire sniff cycle, with 0 ms corresponding to the mouse's inhalation phase. This allows us to observe fluorescence changes in response to the same stimulus presented at different phases of the sniff cycle. Additionally, given our acquisition rate of 30 frames per second, these latencies are well-divisible by 30, making it easy to convert them into frame numbers when analyzing the images.
+
+<div align="center">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_latencies.png" alt="Apologetic Mouse" width="300">
+</div>
 
 STIM-ONLY imaging should be conducted in two sessions: one at the glomerular level and another at the MC level. However, it is recommended to start with the MC layer, as repeated stimulation of MCs within the same session can significantly diminish their fluorescence over time.
 
@@ -123,9 +131,21 @@ The plot above illustrates the half-second-averaged response of the selected glo
 
 This is cool because, unlike odor input, where the volume may vary with the amount of air inhaled, we are directly stimulating the axons of the olfactory sensory neurons (the glomeruli). Yet, even with an artificially generated input stimulus, the response is still modulated by the breathing cycle.
 
+---
+
 ### ODOR-ONLY Imaging
 
-Imaging with a passively-presented odorant will allow us to select a background odorant for subsequent imaging sessions. Below are some potential odorants worth screening which activate many dorsal glomeruli.
+Imaging with a passively-presented odorant will allow us to select a background odorant for subsequent imaging sessions. 
+
+Odor-only imaging will require four imaging sessions, covering both the glomeruli and MC planes, at two different concentrations: 20 and 100 flow. The "20 flow" corresponds to 1% SVD (saturated vapor density), while the "100 flow" corresponds to 5% SVD.
+
+Odor delivery to the mouse (via the final valve of the olfactometer) is triggered at the onset of exhalation, just before the inhalation of interest. Since the odor reaches its peak concentration at the nose port approximately 40 ms after release, it is expected to reliably attain its maximum concentration by the start of the inhalation.
+
+<div align="center">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_odor_only.png" alt="Alt text" width="300"/>
+</div>
+
+Below are some potential odorants worth screening which activate many dorsal glomeruli.
 
 | Monomolecular Odorant   | Concentration Diluted in <br> 5 µL of Distilled Water |
 |-------------------------|-------------------------------------------------------|
@@ -137,8 +157,6 @@ Imaging with a passively-presented odorant will allow us to select a background 
 | Heptanal                | 10 µL                                                 |
 | 2MBA                    | 10 µL                                                 |
 | Propionic Acid          | 20 µL                                                 |
-
-Odor-only imaging will require four imaging sessions, covering both the glomeruli and MC planes, at two different concentrations: 20 and 100 flow. The "20 flow" corresponds to 1% SVD (saturated vapor density), while the "100 flow" corresponds to 5% SVD.
 
 We are ideally searching for two odorants described below. 
 
@@ -186,17 +204,18 @@ Here, you can see the response of the selected glomerulus and its associated dau
 
 Overall, **these **ODOR-ONLY** plots are not examples of an ideal odor for this experiment**, but rather a starting point for odor screening. The ideal odor would be a weak ligand that activates the targeted glomerulus only at a higher concentration, after neighboring glomeruli have been activated. Additionally, to ensure connectivity between neighboring glomeruli and the selected glomerulus, it is important that the activity of the daughter MCs does not perfectly correlate with the activity of the selected glomerulus. Ideally, the signal should be modified in some way — for example, even though the selected glomerulus is excited, the daughter MCs might be inhibited.
 
+---
+
 ## ODOR & STIM Imaging 
 
-**Limitations of the Previous ODOR-ONLY Procedure** 
-1. **Odor Connectivity:** The odor, Hexanal, did not exhibit appropriate connectivity with neighboring glomeruli.
-2. **Contamination Between Trials:** Odor lingering in the nose port led to contamination across trials, with odor traces persisting beyond the trial duration (15 sec).
+Here, we overlay single-pulse stimulations at different latencies onto an odor background to examine how the dynamic activation evoked by the odor interacts with the excitation induced by the stimulation.
 
-These issues impacted the accuracy of the subsequent plots generated to analyze the activation of the selected glomerulus in the **ODOR-STIM** condition. Below, I detail the specific issues observed in this experimental iteration.
-
-The code used to analyze the results is available here: [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimodor_241102.m).
+<div align="center">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/odor_latencies_cropped.png" alt="Apologetic Mouse" width="300">
+</div>
 
 **ODOR-STIM Session Setup** 
+
 This session was lengthy and involved randomized trials for each condition:
 - **no stim nor odor:** 10 trials
 - **odor-only high concentration:** 10 trials
@@ -205,15 +224,13 @@ This session was lengthy and involved randomized trials for each condition:
 - **stim & odor low concentration:** 10 trials per 6 latencies
 - **stim & odor high concentration:** 10 trials per 6 latencies
 
-**Issues and Suggested Improvements**
+**Limitations derived from Previous ODOR-ONLY Procedure** 
+1. **Odor Connectivity:** The odor, Hexanal, did not exhibit appropriate connectivity with neighboring glomeruli.
+2. **Contamination Between Trials:** Odor lingering in the nose port led to contamination across trials, with odor traces persisting beyond the trial duration (15 sec).
 
-The presence of cross-contamination between trials persisted in this paradigm. To address this, we will divide the session into three distinct sessions to minimize odor carryover and control conditions more effectively:
+These issues impacted the accuracy of the subsequent plots generated to analyze the activation of the selected glomerulus in the **ODOR-STIM** condition. Below, I detail the specific issues observed in this experimental iteration.
 
-- **1st session :** stim-only and no-odor trials
-- **2nd session :** stim-only, no-odor, odor-only low concentration, stim & odor low concentration
-- **3rd session :** stim-only, no-odor, odor-only high concentration, stim & odor high concentration
-
-This division, presenting conditions in blocks rather than randomizing, should eliminate contamination in no-odor and stim-only trials while also allowing these trials to serve as controls when odors are introduced.
+The code used to analyze the results is available here: [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimodor_241102.m).
 
 **Observations from the STIM-ONLY Condition**
 
@@ -264,5 +281,13 @@ Overall, despite the plots above being generated with an odor which is not condu
 **Summary of Improvements for the Next Iteration of the Experiment**
 
 - Select a weak-ligand odor with strong connectivity to neighboring glomeruli.
-- Break single large sessions into smaller, separated sessions to prevent odor contamination.
 - Repeat this passive imaging session following behavioral training to identify odor concentrations that mask stimulation at the power used—ensuring that the stimulation and masking-odors result in comprable activity amplitudes.
+- Break single large sessions into smaller, separated sessions to prevent odor contamination.
+
+The presence of cross-contamination between trials persisted in this paradigm. To address this, we will divide the session into three distinct sessions to minimize odor carryover and control conditions more effectively:
+
+- **1st session :** stim-only and no-odor trials
+- **2nd session :** stim-only, no-odor, odor-only low concentration, stim & odor low concentration
+- **3rd session :** stim-only, no-odor, odor-only high concentration, stim & odor high concentration
+
+This division, presenting conditions in blocks rather than randomizing, should eliminate contamination in no-odor and stim-only trials while also allowing these trials to serve as controls when odors are introduced.
