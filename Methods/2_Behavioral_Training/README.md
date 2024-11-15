@@ -28,6 +28,13 @@ The y-axis represents the success rate of mice in the detection task. As shown, 
 The most effective stimulus-to-blank trial ratio for both training and continued performance was found to be 0.5 to 0.5. This ratio is optimal because mice tend to have a bias toward licking. If the frequency of stimulus trials exceeds 50%, mice learn to lick on most trials to maximize reward. At a 50% stimulus probability, mice are more motivated to perform the task accurately to avoid the punishment (a 7-second time-out) for licking on a blank trial.
 
 **Training Stimulation Parameters**  
+
+Training is conducted with a stimulation consisting of 10 pulses: each pulse having a duration of 10 ms with 6 ms intervals in between.
+
+<div align="center">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/training_10pulse.png" alt="Apologetic Mouse" width="300">
+</div>
+
 Mice should start their detection training with power densities between $50$ and $58 \text{mW}/\text{mm}^2$ depending on the strength of their channelrhodopsin (ChR2) expression in the OSNs. If the detection rate curve begins to plateau at a percentage below 90%, it may be necessary to increase your stimulation power. 
 
 | Laser Power Control [V] | Power Density at Window ( $\text{mW}/\text{mm}^2$ )  |
@@ -44,8 +51,6 @@ Mice should start their detection training with power densities between $50$ and
 _Conditions_
 * AOM set to 3.5V
 * DMD has 200 x 200 pixels corresponding to 0.25mm²
-
-Training is conducted with a stimulation consisting of 10 pulses: each pulse having a duration of 10 ms with 6 ms intervals in between.
 
 **Training Using Pavlov**  
 
@@ -64,7 +69,11 @@ The code to this plot is linked [HERE](https://github.com/Ekaterina-Koulakova/Si
 ---
 ### Lowering Pulse Count
 
-Now we train the animal to detect progressively shorter pulse sequences until it can detect a single pulse.
+Now we train the animal to detect progressively shorter pulse sequences until it can detect a single pulse as visualized below. This pulse is 10ms long and administered 50ms post-inhilation onset. 
+
+<div align="center">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/50ms_singlepulse.png" alt="Apologetic Mouse" width="300">
+</div>
 
 Within a single training session, multiple pulse lengths can be tested. For instance, you might conduct 50 trials with 8 pulses, 100 trials with 6 pulses, and 150 trials with 4 pulses. While this process is somewhat arbitrary, it is advisable to wait until the animal consistently reaches a 90% success rate before reducing the pulse count further.
 
@@ -157,5 +166,9 @@ In this section, we will evaluate whether single-pulse stimulation at the identi
 
 * Default Latency: 50 ms
 * Latency Probes: 10 ms, 30ms, 60 ms, 120 ms, 180 ms, 240ms
+
+<div align="center">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_latencies.png" alt="Apologetic Mouse" width="300">
+</div>
 
 **Need to reproduce this plot.**
