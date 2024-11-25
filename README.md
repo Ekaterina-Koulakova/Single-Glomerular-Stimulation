@@ -4,9 +4,9 @@ A project taken on as a research assistant in Dmitry Rinberg's lab at the NYU Ne
 
 This project focuses on solving the “figure-ground separation” problem in olfaction, investigating how signals are extracted amid dynamic background odors. My work examines how a single glomerulus acts as a fundamental unit of olfactory encoding. To explore the encoding mechanisms of olfactory stimuli, I employ optogenetics to activate an individual glomerulus while concurrently using two-photon (2P) imaging to monitor associated mitral cell (MC) responses in mice engaged in a stimulus detection task. Thus far, I demonstrated that mice can detect single glomerulus stimulation at various latencies within the sniff cycle. My next objective is to assess whether this detection remains stable when a background odorant is introduced. I hypothesize that once the mouse learns to detect this minimal stimulus, its detection rate will remain high despite the presence of a masking odorant. Overall, this project explores the limitations of temporal olfactory encoding by determining whether stimulus detection is correlated with its MCs activation or if additional pathways are recruited through feed-back and learning.
 
-For more on the theory behind this project, please reference the [Introduction](https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/Introduction.md).
+For a brief conceptual background behind this project, please reference the [Introduction](https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/Introduction.md).
 
-For a deep dive explanation of the experimental flow developed for this work, please refer to the [Methods](https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/tree/main/Methods) section as well as the referenced code files.
+For a deep dive explanation of the experimental flow developed for this work, please refer to the [Methods](https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/tree/main/Methods) section as well as the referenced coding files.
 
 #### Techniques Employed
 
