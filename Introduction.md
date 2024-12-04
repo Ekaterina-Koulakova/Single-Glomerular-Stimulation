@@ -37,14 +37,14 @@ Provided that this project is at its inception, I am primarily dealing with desi
 
 **References**
 
-Mayhew, J, P, O, V. (2021) "Drawing the Borders of Olfactory Space," , undefined(undefined). Available at: https://www.biorxiv.org/content/10.1101/2020.12.04.412254v2.
+Mayhew, J, P, O, V. (2021) "Drawing the Borders of Olfactory Space," bioRxiv 2020.12.04.412254. https://www.biorxiv.org/content/10.1101/2020.12.04.412254v2.
 
-Economo, N, M., Hansen, K. and Wachowiak, M. (2016) "Control of Mitral/Tufted Cell Output by Selective Inhibition among Olfactory Bulb Glomeruli," Cell Press, 91(2),p. 397-411. Available at: https://doi.org/10.1016/j.neuron.2016.06.001.
+Economo, Nathan M., Kevin Hansen, and Matt Wachowiak. "Control of Mitral/Tufted Cell Output by Selective Inhibition among Olfactory Bulb Glomeruli." Neuron 91, no. 2: 397–411. https://doi.org/10.1016/j.neuron.2016.06.001.
 
-Rokni, D. et al. (2014) "An olfactory cocktail party: figure-ground segregation of odorants in rodents," Nature Portfolio, 17(9),p. 1225-1232. Available at: https://doi.org/10.1038/nn.3775.
+Rokni, Dan, Vivian Hemmelder, Vikrant Kapoor, and Venkatesh N. Murthy. "An Olfactory Cocktail Party: Figure-Ground Segregation of Odorants in Rodents." Nature Neuroscience 17, no. 9: 1225–32. https://doi.org/10.1038/nn.3775.
 
-Smear, C, M. et al. (2013) "Multiple perceptible signals from a single olfactory glomerulus," Nature Portfolio, 16(11),p. 1687-1691. Available at: https://doi.org/10.1038/nn.3519.
+Smear, Matthew C., Vikrant Kapoor, Dan Rokni, Joseph W. Singer, and Venkatesh N. Murthy. "Multiple Perceptible Signals from a Single Olfactory Glomerulus." Nature Neuroscience 16, no. 11: 1687–91. https://doi.org/10.1038/nn.3519.
 
-Hopfield, J, J. (1995) "Pattern recognition computation using action potential timing for stimulus representation," Nature Portfolio, 376(6535),p. 33-36. Available at: https://doi.org/10.1038/376033a0.
+Hopfield, John J. "Pattern Recognition Computation Using Action Potential Timing for Stimulus Representation." Nature 376, no. 6535: 33–36. https://doi.org/10.1038/376033a0.
 
-Giaffar, H. et al. (2018) "The primacy model and the structure of olfactory space," Cold Spring Harbor Laboratory, undefined(undefined). Available at: https://doi.org/10.1371/journal.pcbi.1012379.
+Giaffar, Hafiz, Michael T. Schaub, and Vijay Balasubramanian. "The Primacy Model and the Structure of Olfactory Space." PLOS Computational Biology 20, no. 9: e1012379. https://doi.org/10.1371/journal.pcbi.1012379.
