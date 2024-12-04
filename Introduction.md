@@ -22,7 +22,7 @@ Findings from a recent study in our lab, by Mursel Karadas, provides supporting 
 
 <p align="center">
   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/images/detection_task.jpg" width="300">
-  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/images/odor_latencies_cropped.png" width="300">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/images/sniff_odor_latencies.png" width="300">
 </p>
 
 To test this interpretation of Mursel’s findings while building on the work of Dan Rokni and Matt Smear (aforementioned), I am exploring the implications of learning on this principle olfactory circuit. I am currently running a behavioral detection paradigm, Go-NoGo, where mice are expected to lick when they detect the stimulation and to withhold their lick when the simulation is not presented. Using a DMD, I apply 1P stimulation to excite a single glomerulus at latencies which tile the sniff cycle, alongside a masking background odorant, and simultaneously record the activity of its dMCs using two-photon imaging. 
