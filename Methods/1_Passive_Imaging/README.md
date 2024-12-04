@@ -100,7 +100,7 @@ In the previous section, we mapped the daughter MCs to the glomerulus without sy
 In the STIM-ONLY session, we proceed by stimulating the single glomerulus at various latencies relative to the sniff cycle. The selected latencies are: 10, 30, 60, 120, 180, and 240 ms. These latencies were chosen for a few reasons. Firstly, they span the entire sniff cycle, with 0 ms corresponding to the mouse's inhalation phase. This allows us to observe fluorescence changes in response to the same stimulus presented at different phases of the sniff cycle. Additionally, given our acquisition rate of 30 frames per second, these latencies are well-divisible by 30, making it easy to convert them into frame numbers when analyzing the images.
 
 <div align="center">
-  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_latencies.png" alt="Apologetic Mouse" width="300">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_stim_latencies.png" width="300">
 </div>
 
 STIM-ONLY imaging should be conducted in two sessions: one at the glomerular level and another at the MC level. However, it is recommended to start with the MC layer, as repeated stimulation of MCs within the same session can significantly diminish their fluorescence over time.
@@ -110,7 +110,7 @@ The power used for stimulation varies depending on the expression levels of ChR2
 Example plots generated from this step can be found using this [MATLAB code](https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/Methods/1_Passive_Imaging/SGS_PassiveImg_stimonly_241029.m). 
 
 <div align="center">
-   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_ROIs.png" alt="Alt text" width="2000"/>
+   <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerular-Stimulation/blob/main/plots/Imaging/stim_STIM-ONLY_ROIs.png" width="2000"/>
 </div>
 
 This plot displays the normalized, half-second average fluorescence amplitude of selected ROIs following stimulation. The fluorescence delta from the no-stim control condition is what is shown as this condition was subtracted from each image. The different columns correspond to the various stimulation latencies, as indicated on the x-axis. In the top row, which shows the glomeruli within the selected field of view, the stimulated glomerulus at different latencies consistently exhibits the highest fluorescence amplitude. Similarly, in the MC layer, the black-outlined daughter MCs show maximum fluorescence amplitude.
@@ -211,7 +211,7 @@ Overall, **these **ODOR-ONLY** plots are not examples of an ideal odor for this 
 Here, we overlay single-pulse stimulations at different latencies onto an odor background to examine how the dynamic activation evoked by the odor interacts with the excitation induced by the stimulation.
 
 <div align="center">
-  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/odor_latencies_cropped.png" alt="Apologetic Mouse" width="300">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_odor_latencies.png" alt="Apologetic Mouse" width="300">
 </div>
 
 **ODOR-STIM Session Setup** 
