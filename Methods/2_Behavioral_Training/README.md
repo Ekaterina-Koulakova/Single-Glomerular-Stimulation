@@ -32,7 +32,7 @@ The most effective stimulus-to-blank trial ratio for both training and continued
 Training is conducted with a stimulation consisting of 10 pulses: each pulse having a duration of 10 ms with 6 ms intervals in between.
 
 <div align="center">
-  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/training_10pulse.png" alt="Apologetic Mouse" width="300">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_training_10pulse.png" alt="Apologetic Mouse" width="300">
 </div>
 
 Mice should start their detection training with power densities between $50$ and $58 \text{mW}/\text{mm}^2$ depending on the strength of their channelrhodopsin (ChR2) expression in the OSNs. If the detection rate curve begins to plateau at a percentage below 90%, it may be necessary to increase your stimulation power. 
@@ -72,7 +72,7 @@ The code to this plot is linked [HERE](https://github.com/Ekaterina-Koulakova/Si
 Now we train the animal to detect progressively shorter pulse sequences until it can detect a single pulse as visualized below. This pulse is 10ms long and administered 50ms post-inhilation onset. 
 
 <div align="center">
-  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/50ms_singlepulse.png" alt="Apologetic Mouse" width="300">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_50ms_singlepulse.png" alt="Apologetic Mouse" width="300">
 </div>
 
 Within a single training session, multiple pulse lengths can be tested. For instance, you might conduct 50 trials with 8 pulses, 100 trials with 6 pulses, and 150 trials with 4 pulses. While this process is somewhat arbitrary, it is advisable to wait until the animal consistently reaches a 90% success rate before reducing the pulse count further.
@@ -168,7 +168,7 @@ In this section, we will evaluate whether single-pulse stimulation at the identi
 * Latency Probes: 10 ms, 30ms, 60 ms, 120 ms, 180 ms, 240ms
 
 <div align="center">
-  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_latencies.png" alt="Apologetic Mouse" width="300">
+  <img src="https://github.com/Ekaterina-Koulakova/Single-Glomerulus-Stimulation/blob/main/images/sniff_stim_latencies.png" width="300">
 </div>
 
 **Need to reproduce this plot.**
